@@ -1,0 +1,91 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+
+    <ImageView
+        android:id="@+id/cardBackgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/master_card" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Other Card Details -->
+
+        <!-- Card Holder Name -->
+        <TextView
+            android:id="@+id/cardNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1234 5678 9012 3456"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="75dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Expiry Date and Year (Horizontal Layout) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/expirationMonthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Expiry Date: 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/expirationYearTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="/24"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="45dp">
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Update" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

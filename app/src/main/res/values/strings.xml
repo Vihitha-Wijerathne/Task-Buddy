@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RideEase</string>
+    <string name="app_name">TaskBuddy</string>
 
     //Select Route
     <string name="select_route_prompt">Select a Route</string>

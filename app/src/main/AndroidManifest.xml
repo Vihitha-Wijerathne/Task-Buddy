@@ -33,8 +33,12 @@
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
         <activity
+            android:name=".Payment.CreditCard"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.WelcomePage"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
