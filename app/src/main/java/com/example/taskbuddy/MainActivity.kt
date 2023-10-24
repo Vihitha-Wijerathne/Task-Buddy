@@ -3,7 +3,7 @@ package com.example.taskbuddy
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.taskbuddy.Payment.AddCardBottomSheetFragment
+import com.example.taskbuddy.Payment.AddCardDetails
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         val openBottomSheetButton = findViewById<Button>(R.id.open_bottom_sheet_button)
 
         openBottomSheetButton.setOnClickListener {
-            val bottomSheetFragment = AddCardBottomSheetFragment()
+            val bottomSheetFragment = AddCardDetails()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
     }

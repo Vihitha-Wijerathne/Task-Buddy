@@ -1,4 +1,4 @@
-package com.example.taskbuddy.Models
+package com.example.taskbuddy.Modals
 
 data class AddCardModal(
     var cardId: String? = null,
