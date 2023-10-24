@@ -13,7 +13,9 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="232dp"
+        android:layout_marginBottom="120dp"
         android:text="sign up"
+        app:layout_constraintBottom_toTopOf="@+id/WelcomePage_signinbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,12 +25,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="76dp"
         android:layout_marginEnd="235dp"
-        android:layout_marginBottom="409dp"
         android:text="sign in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <Button
+        android:id="@+id/welcompage_servicesignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="162dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="155dp"
+        android:text="serivce sign up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomepage_signupbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/WelcomePage_signinbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
