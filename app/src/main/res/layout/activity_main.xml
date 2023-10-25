@@ -70,4 +70,13 @@
         tools:layout_editor_absoluteY="440dp"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/open_bottom_sheet_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintTop_toBottomOf="@+id/open_bottom_sheet_button"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="168dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

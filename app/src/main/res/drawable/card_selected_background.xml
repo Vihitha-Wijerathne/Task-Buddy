@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <!-- This is the main card background -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <corners android:radius="8dp" /> <!-- You can adjust the corner radius -->
+        </shape>
+    </item>
+    <item android:right="8dp">
+        <!-- Add a small indicator to the right to signify selection -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/yellow" />
+            <corners android:radius="0dp" />
+            <size android:width="4dp" />
+        </shape>
+    </item>
+</layer-list>

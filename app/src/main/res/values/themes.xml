@@ -5,5 +5,11 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="AppTheme.BottomSheet.Button" parent="Widget.AppCompat.Button">
+        <!-- Set your button's background color and other properties -->
+        <item name="android:background">@color/purple_500</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="Theme.TaskBuddy" parent="Base.Theme.TaskBuddy" />
 </resources>

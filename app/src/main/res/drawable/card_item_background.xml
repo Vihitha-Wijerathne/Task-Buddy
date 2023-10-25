@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Unselected state -->
+    <item android:state_activated="false" android:state_pressed="false">
+        <shape>
+            <solid android:color="#FFFFFF" /> <!-- Background color for unselected items -->
+            <corners android:radius="8dp" /> <!-- Rounded corners, adjust the radius as needed -->
+        </shape>
+    </item>
+
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#E0E0E0" /> <!-- Background color when pressed -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+    <!-- Default, selected state -->
+    <item>
+        <shape>
+            <solid android:color="#E0E0E0" /> <!-- Background color for selected items -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>
