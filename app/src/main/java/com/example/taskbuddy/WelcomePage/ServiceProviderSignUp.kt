@@ -107,7 +107,9 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                                 state: String,
                                                 count: Int,
                                             ) {
+
                                                 val user = ServiceProviderModal(userId, nic, name, email, phoneNumb,servicetype, location,rate,state, count)
+
                                                 database.child(userId).setValue(user)
                                             }
 
