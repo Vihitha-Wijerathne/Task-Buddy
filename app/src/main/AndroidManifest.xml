@@ -43,9 +43,9 @@
         <activity
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
-        <activity
-            android:name=".Payment.CreditCard"
-            android:exported="false" />
+
+        <activity android:name=".Payment.ConfirmPaymentActivity" />
+
         <activity
             android:name=".WelcomePage.WelcomePage"
             android:exported="true">
