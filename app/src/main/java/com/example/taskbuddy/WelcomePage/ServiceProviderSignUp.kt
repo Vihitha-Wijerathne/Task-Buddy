@@ -32,6 +32,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
     private lateinit var repasswd: EditText
     private lateinit var rlocation: EditText
     private lateinit var servicetype: Spinner
+    private var count: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service_provider_sign_up)
@@ -45,7 +46,8 @@ class ServiceProviderSignUp : AppCompatActivity() {
         rpasswd = findViewById(R.id.reg_password)
         repasswd = findViewById(R.id.re_password)
         rlocation = findViewById(R.id.reg_location)
-        servicetype = findViewById(R.id.spiiner1)
+        servicetype = findViewById(R.id.spinner1)
+
 
         val types = arrayOf("Plumber","Electrician","Cleaner","Pet Sitter","Personal Trainer","Painter")
         val arrayAdp = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,types)
@@ -102,9 +104,12 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                                 location: String,
                                                 servicetype: String,
                                                 rate: Double,
-                                                state: String
+                                                state: String,
+                                                count: Int,
                                             ) {
-                                                val user = ServiceProviderModal(userId,nic, name, email, phoneNumb,servicetype, location,rate,state)
+
+                                                val user = ServiceProviderModal(userId, nic, name, email, phoneNumb,servicetype, location,rate,state, count)
+
                                                 database.child(userId).setValue(user)
                                             }
 
@@ -112,7 +117,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                             user?.let {
                                                 val uid = it.uid
 
-                                                writeNewUser(uid, nic, name, email, number,servicet, location, rating,status)
+                                                writeNewUser(uid, nic, name, email, number,servicet, location, rating,status, count)
 
                                                 user?.sendEmailVerification()
                                                     ?.addOnCompleteListener(this) { task ->
