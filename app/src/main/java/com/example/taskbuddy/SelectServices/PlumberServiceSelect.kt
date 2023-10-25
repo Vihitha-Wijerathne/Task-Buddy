@@ -150,7 +150,7 @@ class PlumberServiceSelect : AppCompatActivity() {
 
         orderid = dbref.push().key!!
 
-        val order = orderdetails(userid,orderhistory,time)
+        val order = orderdetails(userid,orderhistory,time,serviceprovider)
 
         dbref.child(orderid).setValue(order)
             .addOnCompleteListener {
