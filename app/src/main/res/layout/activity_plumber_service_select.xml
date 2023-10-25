@@ -2,8 +2,109 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectServices.PlumberServiceSelect">
 
+    <!-- Service Provider Information -->
+    <TextView
+        android:id="@+id/serviceprovidername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        tools:layout_editor_absoluteX="187dp" />
+
+    <TextView
+        android:id="@+id/serviceproviderlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="19dp" />
+
+    <TextView
+        android:id="@+id/serviceprovidernumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <TextView
+        android:id="@+id/serviceproviderrating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="58dp" />
+
+    <!-- Checkboxes for Services -->
+
+    <CheckBox
+        android:id="@+id/emergencyrepaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emergency Repairs"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <CheckBox
+        android:id="@+id/leakrepaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leak Repairs"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="191dp" />
+
+    <CheckBox
+        android:id="@+id/pipeinstallation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pipe Installation"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="239dp" />
+
+    <CheckBox
+        android:id="@+id/driancleaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drain Cleaning"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="287dp" />
+
+    <CheckBox
+        android:id="@+id/barthroomplumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bathroom Plumbing"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <CheckBox
+        android:id="@+id/kitchenplumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kitchen Plumbing"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <!-- Proceed Button -->
+
+    <!-- Payable Amount -->
+    <Button
+        android:id="@+id/proceedbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="603dp" />
+
+    <TextView
+        android:id="@+id/payableamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payable Amount"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="84dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

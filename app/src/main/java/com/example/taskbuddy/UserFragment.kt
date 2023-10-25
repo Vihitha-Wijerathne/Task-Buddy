@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.taskbuddy.Modals.UserModal
@@ -27,7 +28,7 @@ class UserFragment : Fragment() {
     private lateinit var email: TextView
     private lateinit var contactNumb: TextView
     private lateinit var nic: TextView
-    private lateinit var signoutbtn: Button
+    private lateinit var signoutbtn: ImageView
     private lateinit var location: TextView
 
     override fun onCreateView(

@@ -18,55 +18,55 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class PlumberSearch : AppCompatActivity() {
-    private lateinit var plumberResult: ArrayList<ServiceProviderModal>
+    private lateinit var plumberResult: ArrayList<ServiceProviderModal> // Initialize this property
     private lateinit var dbRef: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var plumberRecyclerView: RecyclerView
     private lateinit var plumberAdapter: PlumberAdaptor
-    private  var ulocation: String? = null
+    private var ulocation: String? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plumber_search)
 
+        // Initialize plumberResult as an empty ArrayList
+        plumberResult = ArrayList()
 
         plumberRecyclerView = findViewById(R.id.plumberrecyclerview)
         plumberRecyclerView.layoutManager = LinearLayoutManager(this)
-        plumberAdapter = PlumberAdaptor(this,plumberResult)
+        plumberAdapter = PlumberAdaptor(this, plumberResult)
         plumberRecyclerView.adapter = plumberAdapter
 
         firebaseAuth = FirebaseAuth.getInstance()
 
         getuserlocation()
         getserviceproviders()
-
     }
-    private fun getuserlocation(){
+
+    private fun getuserlocation() {
         val user = firebaseAuth.currentUser
         var userid = ""
-        user?.let{
+        user?.let {
             userid = it.uid
 
             dbRef = FirebaseDatabase.getInstance().getReference("users").child(userid)
             dbRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()){
+                    if (snapshot.exists()) {
                         val userresults = snapshot.getValue(UserModal::class.java)
                         ulocation = userresults?.location
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@PlumberSearch,"There is a problem of retrieving data from database", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@PlumberSearch, "There is a problem of retrieving data from the database", Toast.LENGTH_LONG).show()
                 }
             })
-
         }
     }
 
-    private fun getserviceproviders(){
-
+    private fun getserviceproviders() {
         dbRef = FirebaseDatabase.getInstance().getReference("serviceprovider")
 
         dbRef.orderByChild("service").equalTo("Plumber")
@@ -76,7 +76,7 @@ class PlumberSearch : AppCompatActivity() {
                     for (snapshot in dataSnapshot.children) {
                         val item = snapshot.getValue(ServiceProviderModal::class.java)
                         item?.let {
-                            if(ulocation==item.location) {
+                            if (ulocation == item.location) {
                                 plumberResult.add(item)
                             }
                         }
@@ -90,7 +90,7 @@ class PlumberSearch : AppCompatActivity() {
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle any errors
-                    Toast.makeText(this@PlumberSearch,"There is a problem of retrieving data from database", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@PlumberSearch, "There is a problem of retrieving data from the database", Toast.LENGTH_LONG).show()
                 }
             })
     }
