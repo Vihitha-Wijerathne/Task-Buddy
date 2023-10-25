@@ -7,5 +7,6 @@ data class AddCardModal(
     var cardNumber: String? = null,
     var expirationYear: String? = null,
     var expirationMonth: String? = null,
-    var cvv: String? = null
+    var cvv: String? = null,
+    var isSelected: Boolean = false
 )

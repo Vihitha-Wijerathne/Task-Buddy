@@ -1,11 +1,12 @@
 package com.example.taskbuddy
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.taskbuddy.Adapter.CreditCard
 import com.example.taskbuddy.Payment.AddCardDetails
-import com.example.taskbuddy.Payment.CreditCard
 import com.example.taskbuddy.WelcomePage.ServiceProviderSignUp
 
 class MainActivity : AppCompatActivity() {

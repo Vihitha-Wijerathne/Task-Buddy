@@ -19,37 +19,45 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    android:layout_marginTop="16dp">
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="16dp">
 
-    <!-- Title "Payment Methods" -->
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Payment Methods"
-        android:textSize="24sp"
-        android:textColor="#333333" />
+        <!-- Title "Payment Methods" -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Methods"
+            android:textSize="24sp"
+            android:textColor="#333333" />
 
-    <!-- Add Button -->
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:layout_marginStart="83dp" />
-</LinearLayout>
+        <!-- Add Button -->
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_marginStart="83dp" />
+    </LinearLayout>
 
     <!-- RecyclerView to display credit card items -->
-<androidx.recyclerview.widget.RecyclerView
-android:id="@+id/creditCardRecyclerView"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_below="@+id/titleLayout"
-    android:padding="16dp"
-    android:clipToPadding="false" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/creditCardRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleLayout"
+        android:clipToPadding="false"
+        android:padding="16dp" />
 
+    <!-- Button at the bottom -->
+    <Button
+        android:id="@+id/proceed_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/creditCardRecyclerView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Proceed Payment" />
 
-
-    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<!-- selected_card_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When the card is pressed (selected) -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FF5722" /> <!-- Background color when selected -->
+            <corners android:radius="4dp" /> <!-- Rounded corners, adjust as needed -->
+        </shape>
+    </item>
+    <!-- When the card is not pressed (default) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- Default background color -->
+            <corners android:radius="4dp" /> <!-- Rounded corners, adjust as needed -->
+        </shape>
+    </item>
+</selector>
