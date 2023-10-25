@@ -84,12 +84,12 @@ class PlumberServiceSelect : AppCompatActivity() {
         phonenumber.text = snumber
         rating.text = srating.toString()
 
-        emergencyrepaires.text = emergencycost.toString()
-        leakrepaire.text = leakcost.toString()
-        pipeinstallation.text = pipecost.toString()
-        draincleaning.text = draincost.toString()
-        barthroomplumbing.text = barthroomcost.toString()
-        kitachenplumbing.text = kitachencost.toString()
+        emergencyrepaires.text = "Emergency Repairs ( $emergencycost)"
+        leakrepaire.text = "Leak Repairs ($leakcost)"
+        pipeinstallation.text = "Pipe Installation ($pipecost)"
+        draincleaning.text = "Drain Cleaning ($draincost)"
+        barthroomplumbing.text = "Bathroom Plumbing ($barthroomcost)"
+        kitachenplumbing.text = "Kitchen Plumbing ($kitachencost)"
 
         firebaseAuth = FirebaseAuth.getInstance()
 
