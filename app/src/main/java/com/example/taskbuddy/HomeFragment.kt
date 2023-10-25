@@ -1,6 +1,8 @@
 package com.example.taskbuddy
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import com.example.taskbuddy.Feedback.FeedbackForm
 
 
 class HomeFragment : Fragment() {
@@ -17,6 +20,7 @@ class HomeFragment : Fragment() {
     private lateinit var paintbtn : Button
     private lateinit var trainerbtn : Button
     private lateinit var petbtn : Button
+    private lateinit var feedbackbtn : Button
 
 
     @SuppressLint("MissingInflatedId", "CutPasteId")
@@ -32,14 +36,13 @@ class HomeFragment : Fragment() {
         petbtn = view.findViewById(R.id.petbtn)
         electricalbtn = view.findViewById(R.id.electricalbtn)
         paintbtn = view.findViewById(R.id.paintbtn)
-        trainerbtn = view.findViewById(R.id.trainerbtn)
+        feedbackbtn = view.findViewById(R.id.feedback)
 
 
-
-
-
-
-
+        feedbackbtn.setOnClickListener{
+            val intent = Intent(activity, FeedbackForm::class.java)
+            startActivity(intent)
+        }
 
       return view
     }

@@ -22,11 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
 
     <!-- User Name -->
     <TextView
