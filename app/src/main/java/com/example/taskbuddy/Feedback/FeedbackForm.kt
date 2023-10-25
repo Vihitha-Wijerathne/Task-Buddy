@@ -29,7 +29,7 @@ class FeedbackForm : AppCompatActivity() {
     private var averageCount: Int = 0
     private lateinit var comments: String
     private  lateinit var serviceProviderId: String
-
+    private  lateinit var orderId: String
     private lateinit var nic: String
     private lateinit var name: String
     private lateinit var email: String
@@ -44,6 +44,7 @@ class FeedbackForm : AppCompatActivity() {
         setContentView(R.layout.activity_feedback_form)
 
         serviceProviderId = intent.getStringExtra("sid")!!
+        orderId = intent.getStringExtra("orderId")!!
 
         serviceRatingBar = findViewById(R.id.serviceRatingBar)
         timeManagementRatingBar = findViewById(R.id.timeManagementRatingBar)
@@ -63,7 +64,7 @@ class FeedbackForm : AppCompatActivity() {
 
             feedbackId = database.push().key!!
 
-            val feedback =AddFeedbackModal(userId,serviceProviderId,serviceRating,timeManagementRating, userFriendlinessRating, overallSatisfactionRating, comments)
+            val feedback =AddFeedbackModal(userId,serviceProviderId,orderId, serviceRating,timeManagementRating, userFriendlinessRating, overallSatisfactionRating, comments)
 
             database.child(feedbackId).setValue(feedback)
                 .addOnCompleteListener {
@@ -90,9 +91,9 @@ class FeedbackForm : AppCompatActivity() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    val updateServiceProvider = snapshot.getValue(ServiceProviderModal::class.java)
-                    ratingAverage = updateServiceProvider?.rating!!
-                    averageCount = updateServiceProvider?.count!!
+                    val getServiceProvider = snapshot.getValue(ServiceProviderModal::class.java)
+                    ratingAverage = getServiceProvider?.rating!!
+                    averageCount = getServiceProvider?.count!!
                 }
             }
 
