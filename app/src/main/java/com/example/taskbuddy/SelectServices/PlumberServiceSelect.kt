@@ -60,6 +60,8 @@ class PlumberServiceSelect : AppCompatActivity() {
 
         time = "$hour.$minute"
 
+        orderhistory = ArrayList()
+
         emergencyrepaires = findViewById(R.id.emergencyrepaire)
         leakrepaire = findViewById(R.id.leakrepaire)
         pipeinstallation = findViewById(R.id.pipeinstallation)
