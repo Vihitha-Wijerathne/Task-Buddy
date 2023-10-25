@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.taskbuddy.Modals.ServiceProviderModal
 import com.example.taskbuddy.Modals.UserModal
 import com.example.taskbuddy.R
+import com.example.taskbuddy.WelcomePage.ServiceproviderSignInPage
 import com.example.taskbuddy.WelcomePage.SignInPage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -31,7 +32,6 @@ class ServiceUserFragment : Fragment() {
     private lateinit var signoutbtn: ImageView
     private lateinit var location: TextView
     private lateinit var rating: TextView
-    private lateinit var count: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,13 +45,15 @@ class ServiceUserFragment : Fragment() {
         contactNumb = view.findViewById(R.id.number_profile)
         nic = view.findViewById(R.id.nic_profile)
         signoutbtn = view.findViewById(R.id.signoutbtn)
+        location = view.findViewById(R.id.location)
+        rating = view.findViewById(R.id.rating)
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser
 
         signoutbtn.setOnClickListener {
             firebaseAuth.signOut()
-            val intent = Intent(activity, SignInPage::class.java)
+            val intent = Intent(activity, ServiceproviderSignInPage::class.java)
             startActivity(intent)
             activity?.finish()
         }
@@ -70,7 +72,6 @@ class ServiceUserFragment : Fragment() {
                         contactNumb.text = userresults?.number
                         location.text = userresults?.location
                         rating.text = userresults?.rating.toString()
-                        count.text = userresults?.count.toString()
                     }
                 }
 
