@@ -17,6 +17,7 @@
         <activity
             android:name=".ServiceProviderFragment.ServiceProviderHome"
             android:exported="false" />
+
         <activity
             android:name=".ServiceProviderFragment.ServiceProviderMainActivity"
             android:exported="false"
