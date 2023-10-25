@@ -27,7 +27,7 @@ class ServiceProviderHome : AppCompatActivity() {
         val ser1Frag = ServiceHomeFragment()
         val ser2Frag = ServiceUserFragment()
         val ser3Frag = ServiceHistoryFragment()
-        val ser4Frag = ServiceOngoingJobsFragment()
+        val ser4Frag = ServiceOngoingFragment()
 
         ser1.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {

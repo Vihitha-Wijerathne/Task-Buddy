@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.taskbuddy.MainActivity
 import com.example.taskbuddy.R
+import com.example.taskbuddy.ServiceProviderFragment.ServiceProviderHome
 import com.google.firebase.auth.FirebaseAuth
 
 class ServiceproviderSignInPage : AppCompatActivity() {
@@ -47,7 +48,7 @@ class ServiceproviderSignInPage : AppCompatActivity() {
             if(email.isNotEmpty() && pass.isNotEmpty()){
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, ServiceProviderHome::class.java)
                         startActivity(intent)
 
                         val user = firebaseAuth.currentUser

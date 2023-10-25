@@ -138,7 +138,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                             }
 
                                             val intent =
-                                                Intent(this, SignInPage::class.java)
+                                                Intent(this, ServiceproviderSignInPage::class.java)
                                             startActivity(intent)
 
 

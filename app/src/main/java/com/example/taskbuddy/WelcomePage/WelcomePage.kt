@@ -11,6 +11,7 @@ class WelcomePage : AppCompatActivity() {
     private lateinit var signin: Button
     private lateinit var  signup: Button
     private lateinit var servicesignup: Button
+    private lateinit var servicesignin: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +22,15 @@ class WelcomePage : AppCompatActivity() {
         signin = findViewById(R.id.WelcomePage_signinbtn)
         signup = findViewById(R.id.welcomepage_signupbtn)
         servicesignup = findViewById(R.id.welcompage_servicesignup)
+        servicesignin = findViewById(R.id.welcompage_servicesignin)
 
         servicesignup.setOnClickListener{
             val intent = Intent(this,ServiceProviderSignUp::class.java)
+            startActivity(intent)
+        }
+
+        servicesignin.setOnClickListener{
+            val intent = Intent(this,ServiceproviderSignInPage::class.java)
             startActivity(intent)
         }
 
