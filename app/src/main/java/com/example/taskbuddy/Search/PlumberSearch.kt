@@ -12,14 +12,10 @@ import com.example.taskbuddy.Modals.ServiceProviderModal
 import com.example.taskbuddy.Modals.UserModal
 import com.example.taskbuddy.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 class PlumberSearch : AppCompatActivity() {
-    private lateinit var plumberResult: ArrayList<ServiceProviderModal> // Initialize this property
+    private lateinit var plumberResult: ArrayList<ServiceProviderModal>
     private lateinit var dbRef: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var plumberRecyclerView: RecyclerView
@@ -31,7 +27,6 @@ class PlumberSearch : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plumber_search)
 
-        // Initialize plumberResult as an empty ArrayList
         plumberResult = ArrayList()
 
         plumberRecyclerView = findViewById(R.id.plumberrecyclerview)
@@ -41,7 +36,6 @@ class PlumberSearch : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         getuserlocation()
-        getserviceproviders()
     }
 
     private fun getuserlocation() {
@@ -55,12 +49,20 @@ class PlumberSearch : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val userresults = snapshot.getValue(UserModal::class.java)
-                        ulocation = userresults?.location
+                        if (userresults != null) {
+                            ulocation = userresults.location
+                            getserviceproviders()
+                        } else {
+                            Log.e("PlumberSearch", "User location not found in database")
+                        }
+                    } else {
+                        Log.e("PlumberSearch", "User data does not exist in the database")
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@PlumberSearch, "There is a problem of retrieving data from the database", Toast.LENGTH_LONG).show()
+                    Log.e("PlumberSearch", "Database error: ${error.message}")
+                    Toast.makeText(this@PlumberSearch, "There is a problem retrieving data from the database", Toast.LENGTH_LONG).show()
                 }
             })
         }
@@ -82,15 +84,13 @@ class PlumberSearch : AppCompatActivity() {
                         }
                     }
 
-                    // Sort the data list by the "rating" field from highest to lowest.
                     plumberResult.sortByDescending { it.rating }
-
                     plumberAdapter.notifyDataSetChanged()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle any errors
-                    Toast.makeText(this@PlumberSearch, "There is a problem of retrieving data from the database", Toast.LENGTH_LONG).show()
+                    Log.e("PlumberSearch", "Database error: ${error.message}")
+                    Toast.makeText(this@PlumberSearch, "There is a problem retrieving data from the database", Toast.LENGTH_LONG).show()
                 }
             })
     }

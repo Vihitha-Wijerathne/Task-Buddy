@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -8,103 +9,128 @@
     tools:context=".SelectServices.PlumberServiceSelect">
 
     <!-- Service Provider Information -->
+
+    <!-- Checkboxes for Services -->
+
     <TextView
         android:id="@+id/serviceprovidername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
         android:text="Name"
-        tools:layout_editor_absoluteX="187dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/serviceproviderlocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Location"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="19dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceprovidername" />
 
     <TextView
         android:id="@+id/serviceprovidernumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Number"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceproviderlocation" />
 
     <TextView
         android:id="@+id/serviceproviderrating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="Rating"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="58dp" />
-
-    <!-- Checkboxes for Services -->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceprovidernumber" />
 
     <CheckBox
         android:id="@+id/emergencyrepaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Emergency Repairs"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="143dp" />
+        android:layout_marginTop="24dp"
+        android:text="Emergency Repairs (1000)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payableamount" />
 
     <CheckBox
         android:id="@+id/leakrepaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Leak Repairs"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="191dp" />
+        android:text="Leak Repairs (800)"
+        app:layout_constraintTop_toBottomOf="@id/emergencyrepaire"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/pipeinstallation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pipe Installation"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="239dp" />
+        android:text="Pipe Installation (1000)"
+        app:layout_constraintTop_toBottomOf="@id/leakrepaire"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/driancleaning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drain Cleaning"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="287dp" />
+        android:text="Drain Cleaning (500)"
+        app:layout_constraintTop_toBottomOf="@id/pipeinstallation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/barthroomplumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bathroom Plumbing"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="335dp" />
+        android:text="Bathroom Plumbing (1100)"
+        app:layout_constraintTop_toBottomOf="@id/driancleaning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/kitchenplumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kitchen Plumbing"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="383dp" />
+        android:text="Kitchen Plumbing (1300)"
+        app:layout_constraintTop_toBottomOf="@id/barthroomplumb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Proceed Button -->
-
-    <!-- Payable Amount -->
     <Button
         android:id="@+id/proceedbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Proceed"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="603dp" />
+        app:layout_constraintTop_toBottomOf="@id/kitchenplumb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/payableamount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Payable Amount"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="84dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceproviderrating" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
