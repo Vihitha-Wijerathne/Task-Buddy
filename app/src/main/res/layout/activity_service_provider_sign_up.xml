@@ -59,7 +59,7 @@
         android:inputType="text" />
 
     <Spinner
-        android:id="@+id/spiiner1"
+        android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Service Type" />

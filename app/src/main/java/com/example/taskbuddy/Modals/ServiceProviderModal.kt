@@ -8,6 +8,7 @@ data class ServiceProviderModal(
     var number: String? = null,
     var service: String? = null,
     var location: String? = null,
-    var rating: Double? = null,
-    var status: String? = null
+    var rating: Float? = null,
+    var status: String? = null,
+    var count: Int? = null
 )
