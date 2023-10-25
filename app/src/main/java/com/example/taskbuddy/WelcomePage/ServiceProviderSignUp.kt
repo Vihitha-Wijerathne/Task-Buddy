@@ -81,7 +81,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
             val servicet = servicetype.selectedItem.toString()
-            val rating = 0.0
+            val rating = 0.0F
             val status = "yes"
 
 
@@ -103,7 +103,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                                 phoneNumb: String,
                                                 location: String,
                                                 servicetype: String,
-                                                rate: Double,
+                                                rate: Float,
                                                 state: String,
                                                 count: Int,
                                             ) {
