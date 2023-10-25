@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.example.taskbuddy.Adapter.CreditCard
+import com.example.taskbuddy.Feedback.FeedbackForm
 import com.example.taskbuddy.Payment.ConfirmPaymentActivity
 import com.example.taskbuddy.Search.PlumberSearch
 
@@ -50,7 +51,7 @@ class HomeFragment : Fragment() {
         }
 
         feedbackbtn.setOnClickListener {
-            val intent = Intent(requireContext(), PlumberSearch::class.java)
+            val intent = Intent(requireContext(), FeedbackForm::class.java)
             startActivity(intent)
         }
 
