@@ -78,7 +78,7 @@ class SignUpPage : AppCompatActivity() {
                                                 phoneNumb: String,
                                                 location: String
                                             ) {
-                                                val user = UserModal(nic, name, email, phoneNumb, location)
+                                                val user = UserModal(userId,nic, name, email, phoneNumb, location)
                                                 database.child(userId).setValue(user)
                                             }
 

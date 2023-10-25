@@ -2,92 +2,111 @@ package com.example.taskbuddy.Feedback
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import com.example.taskbuddy.Modals.AddFeedbackModal
+import com.example.taskbuddy.Modals.ServiceProviderModal
 import com.example.taskbuddy.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
-private lateinit var firebaseDatabase: FirebaseDatabase
 
 class FeedbackForm : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var titleTextView: TextView
-    private lateinit var instructionsTextView: TextView
-//    private lateinit var serviceRatingBar: RatingBar
+    private lateinit var serviceRatingBar: RatingBar
+    private lateinit var timeManagementRatingBar: RatingBar
+    private lateinit var userFriendlinessRatingBar: RatingBar
+    private lateinit var overallSatisfactionRatingBar: RatingBar
     private lateinit var commentsEditText: EditText
     private lateinit var submitButton: Button
     private var serviceRating: Float = 0.0F
+    private var timeManagementRating: Float = 0.0F
+    private var userFriendlinessRating: Float = 0.0F
+    private var overallSatisfactionRating: Float = 0.0F
+    private var ratingAverage: Float = 0.0F
+    private var jobRating: Float = 0.0F
+    private var averageCount: Int = 0
     private lateinit var comments: String
+    private  lateinit var serviceProviderId: String
 
+    private lateinit var nic: String
+    private lateinit var name: String
+    private lateinit var email: String
+    private lateinit var number: String
+    private lateinit var service: String
+    private lateinit var location: String
+    private lateinit var status: String
 
-//    private var uloandue: Double = 0.0
-//    private lateinit var rechargebtn: Button
-//    private var rechargeamount: Double = 0.0
-//    private lateinit var inputamouhnt: EditText
-//    private lateinit var inputstring: String
-//    private lateinit var nic: String
-//    private lateinit var name: String
-//    private lateinit var email: String
-//    private lateinit var number: String
-//    private lateinit var disbalance: TextView
-//    private lateinit var disloan: TextView
-//    private var loana: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feedback_form)
 
+        serviceProviderId = intent.getStringExtra("sid")!!
 
-        titleTextView = findViewById(R.id.titleTextView)
-        instructionsTextView = findViewById(R.id.instructionsTextView)
-//        serviceRatingBar = findViewById(R.id.serviceRatingBar)
-        // Find other RatingBars for different categories
+        serviceRatingBar = findViewById(R.id.serviceRatingBar)
+        timeManagementRatingBar = findViewById(R.id.timeManagementRatingBar)
+        userFriendlinessRatingBar = findViewById(R.id.userFriendlinessRatingBar)
+        overallSatisfactionRatingBar = findViewById(R.id.overallSatisfactionRatingBar)
         commentsEditText = findViewById(R.id.commentsEditText)
         submitButton = findViewById(R.id.submitButton)
+        comments = commentsEditText.text.toString()
+
+
+        val user = firebaseAuth.currentUser
+        val userId = user!!.uid
+        var feedbackId = ""
 
         submitButton.setOnClickListener {
-//            serviceRating = serviceRatingBar.rating
-            // Retrieve ratings for other categories similarly
-            comments = commentsEditText.text.toString()
+            database = FirebaseDatabase.getInstance().getReference("feedback")
 
-            val feedbackData = AddFeedbackModal(comments)
-            val database = FirebaseDatabase.getInstance().getReference("feedback")
+            feedbackId = database.push().key!!
 
-            val feedbackId = database.push().key // Generate a unique key
-            if (feedbackId != null) {
-                database.child(feedbackId).setValue(feedbackData)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            // Feedback successfully added to Firebase
-                            // You can navigate to another activity or show a success message here
-                        } else {
-                            // Handle the error here
-                            // You can show an error message to the user
-                        }
-                    }
-            }
+            val feedback =AddFeedbackModal(userId,serviceProviderId,serviceRating,timeManagementRating, userFriendlinessRating, overallSatisfactionRating, comments)
+
+            database.child(feedbackId).setValue(feedback)
+                .addOnCompleteListener {
+                    Toast.makeText(this, "feedback added Successfully", Toast.LENGTH_LONG).show()
+                }.addOnFailureListener { err ->
+                    Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+                }
+
+            getServiceData()
+
+            jobRating = ((serviceRating + timeManagementRating + userFriendlinessRating + overallSatisfactionRating) / 4)
+
+            ratingAverage = ((ratingAverage * averageCount) + jobRating) / (averageCount + 1)
+
+            averageCount += 1
+
+            updateServiceProvider()
+
         }
+
     }
-//    private fun getUserId(): String {
-//
-//        firebaseAuth = fire
-//        val user = firebaseAuth.currentUser
-//        val userId = ""
-//        user?.let{
-//            userId = it.uid
-//
-//        }
-//    }
-//    private fun getServiceProvierId(): String {
-//        // Implement the logic to retrieve the service provider's ID
-//        // This might involve a database query or other method
-//        // Return the service provider's ID once you have it
-//    }
+    private fun getServiceData(){
+        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    val updateServiceProvider = snapshot.getValue(ServiceProviderModal::class.java)
+                    ratingAverage = updateServiceProvider?.rating!!
+                    averageCount = updateServiceProvider?.count!!
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@FeedbackForm,"There is a problem of retrieving data from database", Toast.LENGTH_LONG).show()
+            }
+        })
+
+    }
+    private fun updateServiceProvider(){
+        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
+
+        val updateServiceProvider = ServiceProviderModal(serviceProviderId,nic,name,email,number,service,location,ratingAverage,status,averageCount)
+        database.setValue(updateServiceProvider)
+    }
+
 }
