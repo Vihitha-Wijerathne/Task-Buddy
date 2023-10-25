@@ -40,12 +40,11 @@ class ServiceUserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_service_user, container, false)
         var userid = ""
-        usernametxt = view.findViewById(R.id.username_sprofile)
-        email = view.findViewById(R.id.email_sprofile)
-        nic = view.findViewById(R.id.nic_sprofile)
-        signoutbtn = view.findViewById(R.id.ssignoutbtn)
-        rating = view.findViewById(R.id.rating_sprofile)
-        count = view.findViewById(R.id.count_sprofile)
+        usernametxt = view.findViewById(R.id.username_profile)
+        email = view.findViewById(R.id.email_profile)
+        contactNumb = view.findViewById(R.id.number_profile)
+        nic = view.findViewById(R.id.nic_profile)
+        signoutbtn = view.findViewById(R.id.signoutbtn)
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser

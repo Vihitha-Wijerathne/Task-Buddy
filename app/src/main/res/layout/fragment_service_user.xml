@@ -2,22 +2,121 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout6"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ServiceProviderFragment.ServiceUserFragment">
+    android:background="@drawable/profileback"
+    android:scaleType="centerCrop"
+    tools:context=".UserFragment">
+
+
+    <TextView
+        android:id="@+id/username_profile"
+        android:layout_width="251dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textColor="#090909"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="139dp"
-        android:layout_marginEnd="219dp"
-        android:layout_marginBottom="464dp"
+        android:id="@+id/imageView"
+        android:layout_width="138dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/navbar_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nic_profile"
+        android:layout_width="154dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toEndOf="@+id/usercitytxt"
+        app:layout_constraintTop_toTopOf="@+id/usercitytxt" />
+
+    <TextView
+        android:id="@+id/usercitytxt"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="NIC"
+        android:textColor="#090909"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userteletxt" />
+
+    <TextView
+        android:id="@+id/useremailtxt"
+        android:layout_width="133dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Email"
+        android:textColor="#090909"
+        app:layout_constraintEnd_toStartOf="@+id/email_profile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_profile" />
+
+    <TextView
+        android:id="@+id/email_profile"
+        android:layout_width="154dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/useremailtxt"
+        app:layout_constraintTop_toTopOf="@+id/useremailtxt" />
+
+    <TextView
+        android:id="@+id/number_profile"
+        android:layout_width="158dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/userteletxt"
+        app:layout_constraintTop_toTopOf="@+id/userteletxt" />
+
+    <TextView
+        android:id="@+id/userteletxt"
+        android:layout_width="134dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Contact no"
+        android:textColor="#090909"
+        app:layout_constraintEnd_toStartOf="@+id/number_profile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/useremailtxt" />
+
+    <ImageView
+        android:id="@+id/signoutbtn"
+        android:layout_width="399dp"
+        android:layout_height="78dp"
+        android:src="@drawable/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.866" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
