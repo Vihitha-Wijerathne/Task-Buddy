@@ -15,6 +15,8 @@ import com.example.taskbuddy.Adapter.CreditCard
 import com.example.taskbuddy.Feedback.FeedbackForm
 import com.example.taskbuddy.Payment.ConfirmPaymentActivity
 import com.example.taskbuddy.Search.PlumberSearch
+import com.example.taskbuddy.SelectServices.AllServices
+
 
 
 class HomeFragment : Fragment() {
@@ -25,6 +27,8 @@ class HomeFragment : Fragment() {
     private lateinit var trainerbtn : ImageView
     private lateinit var petbtn : ImageView
     private lateinit var feedbackbtn : Button
+    private lateinit var allservices : Button
+
 
 
     @SuppressLint("MissingInflatedId", "CutPasteId", "SuspiciousIndentation")
@@ -41,7 +45,7 @@ class HomeFragment : Fragment() {
         electricalbtn = view.findViewById(R.id.electricalbtn)
         paintbtn = view.findViewById(R.id.paintbtn)
         trainerbtn = view.findViewById(R.id.trainerbtn)
-
+        allservices = view.findViewById(R.id.allservices )
 
         feedbackbtn = view.findViewById(R.id.feedback)
 
@@ -50,8 +54,18 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        allservices.setOnClickListener {
+            val intent = Intent(requireContext(), AllServices::class.java)
+            startActivity(intent)
+        }
+
         feedbackbtn.setOnClickListener {
             val intent = Intent(requireContext(), FeedbackForm::class.java)
+            startActivity(intent)
+        }
+
+        plumberbtn.setOnClickListener {
+            val intent = Intent(requireContext(), PlumberSearch::class.java)
             startActivity(intent)
         }
 
@@ -63,8 +77,6 @@ class HomeFragment : Fragment() {
                 CardDetailsFragment.tag
             )
         }
-
-
 
       return view
     }
