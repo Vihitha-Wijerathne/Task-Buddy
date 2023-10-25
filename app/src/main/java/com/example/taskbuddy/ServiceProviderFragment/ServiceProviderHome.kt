@@ -31,28 +31,28 @@ class ServiceProviderHome : AppCompatActivity() {
 
         ser1.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, ser1Frag)
+                replace(R.id.fragmentContainerView2, ser1Frag)
                 commit()
             }
         }
 
         ser2.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, ser2Frag)
+                replace(R.id.fragmentContainerView2, ser2Frag)
                 commit()
             }
         }
 
         ser3.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, ser3Frag)
+                replace(R.id.fragmentContainerView2, ser3Frag)
                 commit()
             }
         }
 
         ser4.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, ser4Frag)
+                replace(R.id.fragmentContainerView2, ser4Frag)
                 commit()
             }
         }
