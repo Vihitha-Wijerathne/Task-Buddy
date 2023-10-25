@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".UserFragment" >
 
     <ImageView
@@ -21,3 +24,48 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/username_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/email_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user@example.com"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- NIC -->
+    <TextView
+        android:id="@+id/nic_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NIC: XXXXXXXXXXXX"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Sign Out Button -->
+    <Button
+        android:id="@+id/signoutbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="@android:color/white"
+        />
+
+</LinearLayout>
+
