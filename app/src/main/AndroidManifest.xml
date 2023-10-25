@@ -36,12 +36,7 @@
             android:name=".WelcomePage.ServiceproviderSignInPage"
             android:exported="false" />
         <activity
-            android:name=".fuck"
-            android:exported="false"
-            android:label="@string/title_activity_fuck"
-            android:theme="@style/Theme.TaskBuddy.NoActionBar" />
-        <activity
-            android:name=".FeedbackForm"
+            android:name=".Feedback.FeedbackForm"
             android:exported="false" />
         <activity
             android:name=".SelectServices.PlumberServiceSelect"

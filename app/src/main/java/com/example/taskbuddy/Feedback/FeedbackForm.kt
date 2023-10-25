@@ -43,8 +43,8 @@ class FeedbackForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feedback_form)
 
-        serviceProviderId = intent.getStringExtra("sid")!!
-        orderId = intent.getStringExtra("orderId")!!
+        serviceProviderId = "57uPVPCipyc4353xo2yTlE0hE353"
+        orderId = "-NhcdiLO68jFcgMtuX48"
 
         serviceRatingBar = findViewById(R.id.serviceRatingBar)
         timeManagementRatingBar = findViewById(R.id.timeManagementRatingBar)
@@ -54,6 +54,7 @@ class FeedbackForm : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
         comments = commentsEditText.text.toString()
 
+        firebaseAuth = FirebaseAuth.getInstance()
 
         val user = firebaseAuth.currentUser
         val userId = user!!.uid
