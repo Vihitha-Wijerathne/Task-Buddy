@@ -38,6 +38,7 @@ class PlumberAdaptor(private val context: Context, private val data: List<Servic
             itemView.setOnClickListener {
                 val intent = Intent(context, PlumberServiceSelect::class.java)
                 intent.putExtra("name", item.name)
+                intent.putExtra("id",item.sid)
                 intent.putExtra("number",item.number)
                 intent.putExtra("location",item.location)
                 intent.putExtra("rating",item.rating)
