@@ -13,6 +13,15 @@
         android:theme="@style/Theme.TaskBuddy"
         tools:targetApi="31">
         <activity
+            android:name=".SelectServices.PlumberServiceSelect"
+            android:exported="false" />
+        <activity
+            android:name=".Search.PlumberSearch"
+            android:exported="false" />
+        <activity
+            android:name=".Search.ServiceProviderList"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.ServiceProviderSignUp"
             android:exported="false" />
         <activity
