@@ -32,6 +32,9 @@
             android:name=".Search.ServiceProviderList"
             android:exported="false" />
         <activity
+            android:name=".SelectServices.AllServices"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.ServiceProviderSignUp"
             android:exported="false" />
         <activity

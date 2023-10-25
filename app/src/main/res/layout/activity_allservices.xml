@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".SelectServices.AllServices">
+
+    <!-- Title TextView -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Services"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        />
+
+    <!-- Existing GridLayout -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"
+        android:rowCount="4">
+
+        <!-- Include your ImageViews and rows as you mentioned before -->
+
+        <!-- Row 1 -->
+        <!-- ImageView 1 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/cleaning" />
+
+        <!-- ImageView 2 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/technical" />
+
+        <!-- ImageView 3 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/vehicle" />
+
+        <!-- Add more ImageViews for Row 1 -->
+
+        <!-- Row 2 -->
+        <!-- ImageView 4 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/plumber" />
+
+        <!-- ImageView 5 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/electric" />
+
+        <!-- ImageView 6 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/painting" />
+
+        <!-- Add more ImageViews for Row 2 -->
+
+        <!-- Row 3 -->
+        <!-- ImageView 7 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/tutor" />
+
+        <!-- ImageView 8 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/ittech" />
+
+        <!-- ImageView 9 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/personaltrainer" />
+
+        <!-- Add more ImageViews for Row 3 -->
+
+        <!-- Row 4 -->
+        <!-- ImageView 10 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/lockpicker" />
+
+        <!-- ImageView 11 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/petsitting" />
+
+        <!-- ImageView 12 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:scaleType="fitXY"
+            android:src="@drawable/mechanic" />
+
+        <!-- Add more ImageViews for Row 4 -->
+
+    </GridLayout>
+
+    <!-- You can add other views or elements to the LinearLayout as needed -->
+
+</LinearLayout>
