@@ -117,7 +117,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
                                             user?.let {
                                                 val uid = it.uid
 
-                                                writeNewUser(uid, nic, name, email, number,servicet, location, rating,status, count)
+                                                writeNewUser(uid, nic, name, email, number,location,servicet, rating,status, count)
 
                                                 user?.sendEmailVerification()
                                                     ?.addOnCompleteListener(this) { task ->

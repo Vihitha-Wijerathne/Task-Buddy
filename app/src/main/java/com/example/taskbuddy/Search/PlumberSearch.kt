@@ -3,6 +3,7 @@ package com.example.taskbuddy.Search
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +40,6 @@ class PlumberSearch : AppCompatActivity() {
         plumberRecyclerView.adapter = plumberAdapter
 
         firebaseAuth = FirebaseAuth.getInstance()
-
         getuserlocation()
         getserviceproviders()
     }
