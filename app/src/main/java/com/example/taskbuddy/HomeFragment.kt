@@ -29,6 +29,8 @@ class HomeFragment : Fragment() {
     private lateinit var feedbackbtn : Button
     private lateinit var allservices : Button
 
+
+
     @SuppressLint("MissingInflatedId", "CutPasteId", "SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +61,11 @@ class HomeFragment : Fragment() {
 
         feedbackbtn.setOnClickListener {
             val intent = Intent(requireContext(), FeedbackForm::class.java)
+            startActivity(intent)
+        }
+
+        plumberbtn.setOnClickListener {
+            val intent = Intent(requireContext(), PlumberSearch::class.java)
             startActivity(intent)
         }
 
