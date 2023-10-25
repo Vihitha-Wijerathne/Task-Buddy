@@ -3,21 +3,16 @@ package com.example.taskbuddy.Payment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricPrompt
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
-import com.example.taskbuddy.R
+import android.widget.Toast
 
 class ConfirmPaymentActivity : AppCompatActivity() {
 
     private lateinit var biometricPrompt: BiometricPrompt
-    private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_confirm_payment)
 
         val executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(
@@ -29,18 +24,17 @@ class ConfirmPaymentActivity : AppCompatActivity() {
                     // Authentication was successful; you can proceed with your payment logic
                     // The user has successfully authenticated with their biometric data
                     // You can now proceed with your payment logic
+                    // For example, call a function to perform the payment.
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                     super.onAuthenticationError(errorCode, errString)
                     // Handle the authentication error
-                    Handler(Looper.getMainLooper()).post {
-                        Toast.makeText(
-                            this@ConfirmPaymentActivity,
-                            "Authentication failed: $errString",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    Toast.makeText(
+                        this@ConfirmPaymentActivity,
+                        "Authentication failed: $errString",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         )
@@ -51,6 +45,12 @@ class ConfirmPaymentActivity : AppCompatActivity() {
             .setDeviceCredentialAllowed(true) // Allow device PIN/password as a fallback
             .build()
 
+        // Trigger biometric authentication directly on the current page (e.g., when a button is clicked).
+        showBiometricPrompt(promptInfo)
+    }
+
+    private fun showBiometricPrompt(promptInfo: BiometricPrompt.PromptInfo) {
         biometricPrompt.authenticate(promptInfo)
     }
+
 }
