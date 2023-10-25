@@ -1,6 +1,7 @@
 package com.example.taskbuddy
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
-import com.example.taskbuddy.Adapter.CreditCard
-import com.example.taskbuddy.Payment.AddCardDetails
-import com.example.taskbuddy.Payment.ConfirmPaymentActivity
-import com.example.taskbuddy.WelcomePage.ResetPasswordPage
-
 
 
 
@@ -24,6 +20,7 @@ class HomeFragment : Fragment() {
     private lateinit var paintbtn : Button
     private lateinit var trainerbtn : Button
     private lateinit var petbtn : Button
+    private lateinit var feedbackbtn : Button
 
 
     @SuppressLint("MissingInflatedId", "CutPasteId", "SuspiciousIndentation")
