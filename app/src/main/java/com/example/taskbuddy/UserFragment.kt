@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.taskbuddy.Feedback.FeedbackForm
 import com.example.taskbuddy.Modals.UserModal
 import com.example.taskbuddy.WelcomePage.SignInPage
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +30,8 @@ class UserFragment : Fragment() {
     private lateinit var contactNumb: TextView
     private lateinit var nic: TextView
     private lateinit var signoutbtn: ImageView
+    private lateinit var feedbackImage: ImageView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +46,7 @@ class UserFragment : Fragment() {
         nic = view.findViewById(R.id.nic_profile)
         signoutbtn = view.findViewById(R.id.signoutbtn)
         contactNumb = view.findViewById(R.id.number_profile)
+        feedbackImage = view.findViewById(R.id.feedbackImage)
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser
@@ -52,6 +56,11 @@ class UserFragment : Fragment() {
             val intent = Intent(activity, SignInPage::class.java)
             startActivity(intent)
             activity?.finish()
+        }
+
+        feedbackImage.setOnClickListener {
+            val intent = Intent(activity, FeedbackForm::class.java)
+            startActivity(intent)
         }
 
         user?.let{
