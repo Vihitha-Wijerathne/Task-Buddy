@@ -33,6 +33,7 @@
         <!-- Row 1 -->
         <!-- ImageView 1 -->
         <ImageView
+            android:id="@+id/cleaningbtn"
             android:layout_width="0dp"
             android:layout_height="136dp"
             android:layout_columnWeight="1"
@@ -63,6 +64,7 @@
         <!-- Row 2 -->
         <!-- ImageView 4 -->
         <ImageView
+            android:id="@+id/plumberbtn"
             android:layout_width="0dp"
             android:layout_height="136dp"
             android:layout_columnWeight="1"
@@ -72,6 +74,7 @@
 
         <!-- ImageView 5 -->
         <ImageView
+            android:id="@+id/electricalbtn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -81,6 +84,7 @@
 
         <!-- ImageView 6 -->
         <ImageView
+            android:id="@+id/paintbtn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"

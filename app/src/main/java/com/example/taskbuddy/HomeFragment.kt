@@ -14,6 +14,9 @@ import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.example.taskbuddy.Adapter.CreditCard
 import com.example.taskbuddy.Feedback.FeedbackForm
 import com.example.taskbuddy.Payment.ConfirmPaymentActivity
+import com.example.taskbuddy.Search.CleaningSearch
+import com.example.taskbuddy.Search.ElectricalSearch
+import com.example.taskbuddy.Search.PaintingSearch
 import com.example.taskbuddy.Search.PlumberSearch
 import com.example.taskbuddy.SelectServices.AllServices
 import com.example.taskbuddy.ServiceProviderFragment.ServiceProviderHome
@@ -49,10 +52,6 @@ class HomeFragment : Fragment() {
 
         feedbackbtn = view.findViewById(R.id.feedback)
 
-        trainerbtn.setOnClickListener {
-            val intent = Intent(requireContext(), ConfirmPaymentActivity::class.java)
-            startActivity(intent)
-        }
 
         allservices.setOnClickListener {
             val intent = Intent(requireContext(), AllServices::class.java)
@@ -68,6 +67,22 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), PlumberSearch::class.java)
             startActivity(intent)
         }
+
+        cleanbtn.setOnClickListener {
+            val intent = Intent(requireContext(), CleaningSearch::class.java)
+            startActivity(intent)
+        }
+
+        electricalbtn.setOnClickListener {
+            val intent = Intent(requireContext(), ElectricalSearch::class.java)
+            startActivity(intent)
+        }
+
+        paintbtn.setOnClickListener {
+            val intent = Intent(requireContext(), PaintingSearch::class.java)
+            startActivity(intent)
+        }
+
 
       val payment = view.findViewById<Button>(R.id.payment)
         payment.setOnClickListener {

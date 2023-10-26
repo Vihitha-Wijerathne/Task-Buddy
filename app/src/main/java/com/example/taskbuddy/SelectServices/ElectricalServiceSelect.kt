@@ -196,4 +196,3 @@ class ElectricalServiceSelect : AppCompatActivity() {
             }
     }
     }
-}

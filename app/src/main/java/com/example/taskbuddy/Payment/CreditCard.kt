@@ -16,6 +16,7 @@ import com.example.taskbuddy.Adapter.CreditCardAdapter
 import com.example.taskbuddy.MainActivity
 import com.example.taskbuddy.Modals.AddCardModal
 import com.example.taskbuddy.Payment.AddCardDetails
+import com.example.taskbuddy.Payment.ConfirmPaymentActivity
 import com.example.taskbuddy.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -60,7 +61,7 @@ class CreditCard : BottomSheetDialogFragment() {
             // Check if a card is selected
             if (selectedPosition != RecyclerView.NO_POSITION) {
                 // Card is selected, navigate to MainActivity
-                val intent = Intent(context, MainActivity::class.java)
+                val intent = Intent(context, ConfirmPaymentActivity::class.java)
                 startActivity(intent)
             } else {
                 // No card is selected, show a message or handle it accordingly
