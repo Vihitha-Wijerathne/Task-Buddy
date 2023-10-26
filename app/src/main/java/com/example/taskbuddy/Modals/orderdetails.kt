@@ -6,5 +6,6 @@ data class orderdetails(
     val servicesUsed: List<String>,
     val orderTime: String,
     val serviceprovider: String?,
-    val total: Double
+    val total: Double,
+    val status: String
 )

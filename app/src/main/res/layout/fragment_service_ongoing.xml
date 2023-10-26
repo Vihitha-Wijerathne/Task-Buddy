@@ -2,13 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ServiceProviderFragment.ServiceOngoingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
-        android:layout_height="119dp"
+        android:layout_height="362dp"
         android:layout_marginEnd="2dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,40 +20,105 @@
         app:layout_constraintVertical_bias="0.071">
 
         <TextView
+            android:id="@+id/total"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="40dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/JobDescription"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
             android:id="@+id/serviceName"
             android:layout_width="145dp"
             android:layout_height="29dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:text="Service"
+
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/JobDescription"
             android:layout_width="142dp"
             android:layout_height="29dp"
-            android:layout_marginStart="4dp"
-            android:text="User ID"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="52dp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/serviceName"
-            app:layout_constraintVertical_bias="0.422" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderTime" />
 
         <TextView
             android:id="@+id/orderTime"
             android:layout_width="134dp"
             android:layout_height="39dp"
-            android:text="Order Time"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serviceName" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="124dp"
+            android:text="Service"
+            app:layout_constraintEnd_toStartOf="@+id/serviceName"
+            app:layout_constraintHorizontal_bias="0.729"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Price"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/total"
+            app:layout_constraintHorizontal_bias="0.614"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"
+            app:layout_constraintVertical_bias="0.208" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="32dp"
+            android:text="Time"
+            app:layout_constraintEnd_toStartOf="@+id/orderTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="User"
+            app:layout_constraintEnd_toStartOf="@+id/JobDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <Button
+            android:id="@+id/finishedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finished"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.858"
-            app:layout_constraintStart_toEndOf="@+id/JobDescription"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
