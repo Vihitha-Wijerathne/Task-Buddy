@@ -12,36 +12,38 @@
         android:layout_width="222dp"
         android:layout_height="77dp"
         android:text="sign up"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/WelcomePage_signinbtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.91" />
+
 
     <Button
         android:id="@+id/WelcomePage_signinbtn"
-        android:layout_width="213dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="222dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="32dp"
         android:text="sign in"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcompage_servicesignup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomepage_signupbtn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/welcompage_servicesignup"
-        android:layout_width="305dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="291dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="48dp"
         android:text="serivce sign up"
-        android:textSize="32dp"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcompage_servicesignin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WelcomePage_signinbtn" />
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -51,24 +53,34 @@
         android:text="Welcome "
         android:textColor="@color/white"
         android:textSize="50dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057"
+        app:layout_constraintVertical_bias="0.06"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/welcompage_servicesignin"
-        android:layout_width="304dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="296dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="36dp"
         android:text="Service Sign in"
-        android:textSize="32dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="187dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcomepage_signupbtn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcompage_servicesignup"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.357"
+        app:srcCompat="@drawable/logotb" />
 </androidx.constraintlayout.widget.ConstraintLayout>

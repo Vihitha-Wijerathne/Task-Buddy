@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/registerback"
     tools:context=".WelcomePage.SignUpPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,31 +38,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_arrow" />
 
-        <TextView
-            android:id="@+id/add_project"
-            android:layout_width="300dp"
-            android:layout_height="97dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="@string/register"
-            android:textSize="58sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button" />
-
         <EditText
             android:id="@+id/reg_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="264dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
             android:hint="@string/phone"
             android:inputType="phone"
-            app:layout_constraintTop_toBottomOf="@+id/add_project"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
         <EditText
             android:id="@+id/p_name"
@@ -102,8 +91,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/reg_location"
+        <Spinner
+            android:id="@+id/reg_location_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -120,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -147,7 +136,7 @@
             android:id="@+id/reg_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="128dp"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -157,12 +146,12 @@
             android:id="@+id/already_acc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:text="@string/already_acc"
             android:textColorLink="@color/link_blue"
-            app:layout_constraintTop_toBottomOf="@+id/reg_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_button" />
 
         <!-- Rest of your layout elements ... -->
 
