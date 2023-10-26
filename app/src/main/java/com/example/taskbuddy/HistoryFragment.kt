@@ -49,9 +49,7 @@ class HistoryFragment : Fragment() {
 
         dbRef = FirebaseDatabase.getInstance().getReference("orderdetails")
 
-        dbRef.orderByChild("userId")
-            .equalTo(userId)
-            .orderByChild("status")
+        dbRef.orderByChild("status")
             .equalTo("no")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -59,7 +57,9 @@ class HistoryFragment : Fragment() {
                     for (postSnapshot in snapshot.children) {
                         val order = postSnapshot.getValue(orderdetails::class.java)
                         if (order != null) {
+                            if(userId == order.userId){
                             orderlist.add(order)
+                            }
                         }
                     }
                     plumberAdapter.notifyDataSetChanged()
