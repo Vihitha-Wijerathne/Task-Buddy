@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
 
         userfr.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, userFrag)
+                replace(R.id.fragmentContainerView, historyFrag)
                 commit()
             }
         }
 
         histtryfr.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, historyFrag)
+                replace(R.id.fragmentContainerView, userFrag)
                 commit()
             }
         }

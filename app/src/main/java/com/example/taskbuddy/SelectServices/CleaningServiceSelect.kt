@@ -196,4 +196,3 @@ class CleaningServiceSelect : AppCompatActivity() {
             }
     }
     }
-}

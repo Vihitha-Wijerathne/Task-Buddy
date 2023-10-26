@@ -1,5 +1,6 @@
 package com.example.taskbuddy.Search
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,7 @@ class PaintingSearch : AppCompatActivity() {
     private lateinit var plumberRecyclerView: RecyclerView
     private lateinit var paintingAdaptor: PaintingAdaptor
     private var ulocation: String? = null
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_painting_search)
@@ -96,4 +98,3 @@ class PaintingSearch : AppCompatActivity() {
             })
     }
     }
-}

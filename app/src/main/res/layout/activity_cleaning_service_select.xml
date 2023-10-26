@@ -1,9 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/profileback"
     tools:context=".SelectServices.CleaningServiceSelect">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Service Provider Information -->
+
+    <!-- Title -->
+
+    <!-- Label "Name:" and Name TextView -->
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="70dp"
+        android:text="Select Service"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:text="Your TaskBuddy Info"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+
+            />
+
+        <TextView
+            android:id="@+id/serviceprovidername"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- Label "Location:" and Location TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_height="wrap_content"
+            android:text="Location:"
+            />
+
+        <TextView
+            android:id="@+id/serviceproviderlocation"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <!-- Label "Number:" and Number TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_marginLeft="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            />
+
+        <TextView
+            android:id="@+id/serviceprovidernumber"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <!-- Label "Rating:" and Rating TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Rating:" />
+
+        <TextView
+            android:id="@+id/serviceproviderrating"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/divider_drawable" />
+
+
+    <TextView
+        android:id="@+id/servicess"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Services"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+
+        />
+    <CheckBox
+        android:id="@+id/emergencyrepaire"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Emergency Repairs (1000)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <CheckBox
+        android:id="@+id/leakrepaire"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Leak Repairs (800)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <CheckBox
+        android:id="@+id/pipeinstallation"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Pipe Installation (1000)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <CheckBox
+        android:id="@+id/driancleaning"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Drain Cleaning (500)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <!-- Additional CheckBox elements -->
+    <CheckBox
+        android:id="@+id/barthroomplumb"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Bathroom Plumbing (1100)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <CheckBox
+        android:id="@+id/kitchenplumb"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Kitchen Plumbing (1300)"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/divider_drawable" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="50dp"
+            android:textSize="25dp"
+            android:text="Payable Amount:"
+            />
+
+        <TextView
+            android:id="@+id/payableamount"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="30dp"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+    <!-- Proceed Button -->
+    <Button
+        android:id="@+id/proceedbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+
+    <!-- Payable Amount TextView (Leave your existing TextView element as it is) -->
+
+</LinearLayout>
