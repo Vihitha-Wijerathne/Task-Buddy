@@ -66,7 +66,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
         }
 
 
-        val types = arrayOf("Plumber","Electrician","Cleaner","Pet Sitter","Personal Trainer","Painter")
+        val types = arrayOf("Plumber","Electrician","Cleaner","Painter")
         val arrayAdp = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,types)
         servicetype.adapter = arrayAdp
 
