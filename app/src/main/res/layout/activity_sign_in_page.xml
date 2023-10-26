@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginback"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="40dp" />
 
         <ImageView
             android:id="@+id/back_button"
@@ -49,36 +52,21 @@
             app:layout_constraintTop_toTopOf="@+id/background"
             />
 
-        <TextView
-            android:id="@+id/add_project"
-            android:layout_width="216dp"
-            android:layout_height="103dp"
-            android:layout_marginStart="123dp"
-            android:layout_marginTop="@dimen/top_margin_1"
-            android:layout_marginEnd="124dp"
-            android:gravity="center"
-            android:text="@string/login"
-            android:textColor="#4C4E55"
-            android:textSize="60sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icon" />
-
         <EditText
             android:id="@+id/log_email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_height_2"
             android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginTop="@dimen/top_margin_3"
+            android:layout_marginTop="428dp"
             android:layout_marginEnd="@dimen/end_margin"
             android:autoSizeTextType="uniform"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_project" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/log_password"

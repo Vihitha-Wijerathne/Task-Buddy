@@ -12,18 +12,32 @@
     <!-- Service Provider Information -->
 
     <!-- Title -->
+
+    <!-- Label "Name:" and Name TextView -->
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Service"
-        android:textSize="25dp"
-        android:layout_marginBottom="120dp"
-        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="70dp"
+        android:text="Select Service"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
 
-    <!-- Label "Name:" and Name TextView -->
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:text="Your TaskBuddy Info"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +47,7 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
-            android:layout_marginStart="110dp"
+            android:layout_marginLeft="80dp"
             android:layout_height="wrap_content"
             android:text="Name:"
 
@@ -56,7 +70,7 @@
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
-            android:layout_marginStart="110dp"
+            android:layout_marginLeft="80dp"
             android:layout_height="wrap_content"
             android:text="Location:"
             />
@@ -78,7 +92,7 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_marginStart="110dp"
+            android:layout_marginLeft="80dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Number:"
@@ -103,7 +117,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="110dp"
+            android:layout_marginLeft="80dp"
             android:text="Rating:" />
 
         <TextView
@@ -123,7 +137,7 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="110dp"
+            android:layout_marginLeft="80dp"
             android:text="Payable Amount:"
             />
 

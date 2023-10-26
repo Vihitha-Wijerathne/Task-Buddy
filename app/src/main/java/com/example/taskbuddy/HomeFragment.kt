@@ -16,7 +16,7 @@ import com.example.taskbuddy.Feedback.FeedbackForm
 import com.example.taskbuddy.Payment.ConfirmPaymentActivity
 import com.example.taskbuddy.Search.PlumberSearch
 import com.example.taskbuddy.SelectServices.AllServices
-
+import com.example.taskbuddy.ServiceProviderFragment.ServiceProviderHome
 
 
 class HomeFragment : Fragment() {
@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
         }
 
         feedbackbtn.setOnClickListener {
-            val intent = Intent(requireContext(), FeedbackForm::class.java)
+            val intent = Intent(requireContext(), ServiceProviderHome::class.java)
             startActivity(intent)
         }
 
