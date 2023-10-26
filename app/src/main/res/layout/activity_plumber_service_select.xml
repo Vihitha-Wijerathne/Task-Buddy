@@ -1,116 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/profileback"
     tools:context=".SelectServices.PlumberServiceSelect">
 
     <!-- Service Provider Information -->
 
+    <!-- Title -->
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Service"
+        android:textSize="25dp"
+        android:layout_marginBottom="120dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp" />
+
+    <!-- Label "Name:" and Name TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+
+            />
+
+        <TextView
+            android:id="@+id/serviceprovidername"
+            android:layout_marginStart="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- Label "Location:" and Location TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_height="wrap_content"
+            android:text="Location:"
+            />
+
+        <TextView
+            android:id="@+id/serviceproviderlocation"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <!-- Label "Number:" and Number TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_marginStart="110dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            />
+
+        <TextView
+            android:id="@+id/serviceprovidernumber"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <!-- Label "Rating:" and Rating TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:text="Rating:" />
+
+        <TextView
+            android:id="@+id/serviceproviderrating"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:text="Payable Amount:"
+            />
+
+        <TextView
+            android:id="@+id/payableamount"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
     <!-- Checkboxes for Services -->
-
-    <TextView
-        android:id="@+id/serviceprovidername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/serviceproviderlocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/serviceprovidername" />
-
-    <TextView
-        android:id="@+id/serviceprovidernumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/serviceproviderlocation" />
-
-    <TextView
-        android:id="@+id/serviceproviderrating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Rating"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/serviceprovidernumber" />
-
     <CheckBox
         android:id="@+id/emergencyrepaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Emergency Repairs (1000)"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payableamount" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="16dp"
+        />
 
     <CheckBox
         android:id="@+id/leakrepaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leak Repairs (800)"
-        app:layout_constraintTop_toBottomOf="@id/emergencyrepaire"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
 
     <CheckBox
         android:id="@+id/pipeinstallation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pipe Installation (1000)"
-        app:layout_constraintTop_toBottomOf="@id/leakrepaire"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
 
     <CheckBox
         android:id="@+id/driancleaning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drain Cleaning (500)"
-        app:layout_constraintTop_toBottomOf="@id/pipeinstallation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
 
+    <!-- Additional CheckBox elements -->
     <CheckBox
         android:id="@+id/barthroomplumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bathroom Plumbing (1100)"
-        app:layout_constraintTop_toBottomOf="@id/driancleaning"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
 
     <CheckBox
         android:id="@+id/kitchenplumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kitchen Plumbing (1300)"
-        app:layout_constraintTop_toBottomOf="@id/barthroomplumb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        />
 
     <!-- Proceed Button -->
     <Button
@@ -118,19 +197,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Proceed"
-        app:layout_constraintTop_toBottomOf="@id/kitchenplumb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
 
-    <TextView
-        android:id="@+id/payableamount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Payable Amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/serviceproviderrating" />
+    <!-- Payable Amount TextView (Leave your existing TextView element as it is) -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
