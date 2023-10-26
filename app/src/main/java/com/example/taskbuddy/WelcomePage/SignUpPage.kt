@@ -3,6 +3,9 @@ package com.example.taskbuddy.WelcomePage
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -39,8 +42,21 @@ class SignUpPage : AppCompatActivity() {
         remail = findViewById(R.id.reg_email)
         rpasswd = findViewById(R.id.reg_password)
         repasswd = findViewById(R.id.re_password)
-        rlocation = findViewById(R.id.reg_location)
+        rlocation = findViewById(R.id.reg_location_spinner)
+        val locations = arrayOf("Malabe","Kaduwela","Gampaha","Colombo","Galle","Kandy")
+        val arrayAdpl = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,locations)
+        rlocation.adapter = arrayAdpl
 
+        rlocation?.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                Toast.makeText(this@ServiceProviderSignUp,"Item is ${types[p2]}", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                Toast.makeText(this@ServiceProviderSignUp,"Nothing is selected", Toast.LENGTH_LONG).show()
+            }
+        }
 
         firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("users")
@@ -55,7 +71,7 @@ class SignUpPage : AppCompatActivity() {
             val nic = rnic.text.toString()
             val number = rpnumber.text.toString()
             val email = remail.text.toString()
-            val location = rlocation.text.toString()
+            val location = rlocation.selectedItem.toString()
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
 
