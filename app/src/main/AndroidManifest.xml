@@ -14,7 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskBuddy"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SelectServices.PaintingServiceSelect"
+            android:exported="false" />
+        <activity
+            android:name=".SelectServices.CleaningServiceSelect"
+            android:exported="false" />
+        <activity
+            android:name=".SelectServices.ElectricalServiceSelect"
+            android:exported="false" />
+        <activity
+            android:name=".Search.PaintingSearch"
+            android:exported="false" />
+        <activity
+            android:name=".Search.CleaningSearch"
+            android:exported="false" />
+        <activity
+            android:name=".Search.ElectricalSearch"
+            android:exported="false" />
         <activity
             android:name=".ServiceProviderFragment.ServiceHistoryFragment"
             android:exported="false" />
@@ -68,7 +85,6 @@
         <activity
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
-
         <activity
             android:name=".WelcomePage.WelcomePage"
             android:exported="true">
