@@ -127,33 +127,28 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/divider_drawable" />
+
+
+    <TextView
+        android:id="@+id/servicess"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:text="Services"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:text="Payable Amount:"
-            />
-
-        <TextView
-            android:id="@+id/payableamount"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-
-    <!-- Checkboxes for Services -->
+        />
     <CheckBox
         android:id="@+id/emergencyrepaire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Emergency Repairs (1000)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="16dp"
@@ -162,7 +157,7 @@
     <CheckBox
         android:id="@+id/leakrepaire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Leak Repairs (800)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
@@ -171,7 +166,7 @@
     <CheckBox
         android:id="@+id/pipeinstallation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Pipe Installation (1000)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
@@ -180,7 +175,7 @@
     <CheckBox
         android:id="@+id/driancleaning"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Drain Cleaning (500)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
@@ -190,7 +185,7 @@
     <CheckBox
         android:id="@+id/barthroomplumb"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Bathroom Plumbing (1100)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
@@ -199,11 +194,45 @@
     <CheckBox
         android:id="@+id/kitchenplumb"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Kitchen Plumbing (1300)"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
         />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/divider_drawable" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="50dp"
+            android:textSize="25dp"
+            android:text="Payable Amount:"
+            />
+
+        <TextView
+            android:id="@+id/payableamount"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="30dp"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
 
     <!-- Proceed Button -->
     <Button

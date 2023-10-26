@@ -128,13 +128,14 @@ class PlumberServiceSelect : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
 
-
-
-        proccedbtn.setOnClickListener{
-            setorderdetails()
-            val intent = Intent(this,CreditCard::class.java)
-            startActivity(intent)
+        proccedbtn.setOnClickListener {
+            val cardDetailsFragment = CreditCard()
+            cardDetailsFragment.show(
+                supportFragmentManager,
+                cardDetailsFragment.tag
+            )
         }
+
     }
 
     private fun calculateTotalAmount() {
@@ -193,9 +194,9 @@ class PlumberServiceSelect : AppCompatActivity() {
         dbref.child(orderid).setValue(order)
             .addOnSuccessListener {
                 Toast.makeText(this, "Order added Successfully", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, CreditCard::class.java)
-                startActivity(intent)
             }
+
+
             .addOnFailureListener { err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
             }

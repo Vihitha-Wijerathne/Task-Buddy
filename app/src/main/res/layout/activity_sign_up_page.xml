@@ -24,9 +24,8 @@
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:layout_gravity="center"
-            />
+            android:scaleType="centerCrop" />
 
         <ImageView
             android:id="@+id/back_button"
@@ -57,59 +56,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="@string/name"
             android:inputType="textPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/reg_phone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_phone" />
 
         <EditText
             android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            app:layout_constraintTop_toBottomOf="@+id/p_name"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/p_name" />
 
         <EditText
             android:id="@+id/reg_nic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="NIC"
             android:inputType="text"
-            app:layout_constraintTop_toBottomOf="@+id/reg_email"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_email" />
 
         <Spinner
             android:id="@+id/reg_location_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="376dp"
+            android:layout_height="36dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="Location"
             android:inputType="text"
-            app:layout_constraintTop_toBottomOf="@+id/reg_nic"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_nic" />
 
         <EditText
             android:id="@+id/reg_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="72dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -123,24 +122,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="@string/retypepwd"
             android:inputType="textPassword"
-            app:layout_constraintTop_toBottomOf="@+id/reg_password"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_password" />
 
 
         <Button
             android:id="@+id/reg_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="24dp"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_location" />
+            app:layout_constraintTop_toBottomOf="@+id/re_password" />
 
         <TextView
             android:id="@+id/already_acc"

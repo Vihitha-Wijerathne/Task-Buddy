@@ -68,6 +68,9 @@
         <activity
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
+        <activity
+            android:name=".Payment.ConfirmPaymentActivity"
+            android:exported="false" />
 
         <activity
             android:name=".WelcomePage.WelcomePage"
