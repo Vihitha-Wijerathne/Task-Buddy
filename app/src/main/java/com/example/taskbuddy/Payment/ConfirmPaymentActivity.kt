@@ -1,5 +1,6 @@
 package com.example.taskbuddy.Payment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricPrompt
@@ -21,10 +22,10 @@ class ConfirmPaymentActivity : AppCompatActivity() {
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    // Authentication was successful; you can proceed with your payment logic
-                    // The user has successfully authenticated with their biometric data
-                    // You can now proceed with your payment logic
-                    // For example, call a function to perform the payment.
+
+                    val intent = Intent(this@ConfirmPaymentActivity, OrderPlaced::class.java)
+                    startActivity(intent)
+
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
