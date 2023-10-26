@@ -14,12 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskBuddy"
         tools:targetApi="31">
-        <activity
-            android:name=".ServiceProviderFragment.ServiceProviderHome"
-            android:exported="false" />
 
         <activity
-            android:name=".ServiceProviderFragment.ServiceProviderMainActivity"
+            android:name=".ServiceProviderFragment.ServiceHistoryFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceProviderFragment.ServiceHomeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceProviderFragment.ServiceOngoingFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceProviderFragment.ServiceUserFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceProviderFragment.ServiceProviderHome"
             android:exported="false"
             android:label="@string/title_activity_service_provider_main"
             android:theme="@style/Theme.TaskBuddy" />
@@ -27,12 +36,7 @@
             android:name=".WelcomePage.ServiceproviderSignInPage"
             android:exported="false" />
         <activity
-            android:name=".fuck"
-            android:exported="false"
-            android:label="@string/title_activity_fuck"
-            android:theme="@style/Theme.TaskBuddy.NoActionBar" />
-        <activity
-            android:name=".FeedbackForm"
+            android:name=".Feedback.FeedbackForm"
             android:exported="false" />
         <activity
             android:name=".SelectServices.PlumberServiceSelect"
@@ -64,7 +68,7 @@
         <activity
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
-        <activity android:name=".Payment.ConfirmPaymentActivity" />
+
         <activity
             android:name=".WelcomePage.WelcomePage"
             android:exported="true">

@@ -36,7 +36,7 @@ class PlumberServiceSelect : AppCompatActivity() {
     private lateinit var payableamount:TextView
     private lateinit var dbref: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var orderhistory: ArrayList<String>
+    private var orderhistory: ArrayList<String> = ArrayList()
     private lateinit var time: String
     private var servicepId: String? = null
     private var emergencycost: Double = 1000.0
@@ -58,7 +58,11 @@ class PlumberServiceSelect : AppCompatActivity() {
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
 
+        orderhistory = ArrayList()
+
         time = "$hour.$minute"
+
+        orderhistory = ArrayList()
 
         emergencyrepaires = findViewById(R.id.emergencyrepaire)
         leakrepaire = findViewById(R.id.leakrepaire)
@@ -93,9 +97,10 @@ class PlumberServiceSelect : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        totalpayment = calculateTotalAmount(emergencyrepaires.isChecked,leakrepaire.isChecked,pipeinstallation.isChecked,draincleaning.isChecked,barthroomplumbing.isChecked,kitachenplumbing.isChecked)
+        calculateTotalAmount(emergencyrepaires.isChecked,leakrepaire.isChecked,pipeinstallation.isChecked,draincleaning.isChecked,barthroomplumbing.isChecked,kitachenplumbing.isChecked)
 
-        payableamount.text = totalpayment.toString()
+
+        payableamount.text = totalAmount.toString()
 
         proccedbtn.setOnClickListener{
             setorderdetails()
@@ -109,55 +114,63 @@ class PlumberServiceSelect : AppCompatActivity() {
 
         if (emergency) {
             totalAmount += emergencycost
-            orderhistory.add("emergency repaire")
+            orderhistory?.add("emergency repaire")
         }
 
         if (leak) {
             totalAmount += leakcost
-            orderhistory.add("leak repaire")
+            orderhistory?.add("leak repaire")
 
         }
 
         if (pipe) {
             totalAmount += pipecost
-            orderhistory.add("pipe fixing")
+            orderhistory?.add("pipe fixing")
 
         }
         if (drain) {
             totalAmount += draincost
-            orderhistory.add("drain repaire")
+            orderhistory?.add("drain repaire")
 
         }
         if (barthroom) {
             totalAmount += barthroomcost
-            orderhistory.add("barthroom plumbing")
+            orderhistory?.add("barthroom plumbing")
 
         }
         if (kitachen) {
             totalAmount += kitachencost
-            orderhistory.add("kitchen plumbing")
+            orderhistory?.add("kitchen plumbing")
 
         }
 
         return totalAmount
     }
 
-    private fun setorderdetails(){
+
+    private fun setorderdetails() {
         val user = firebaseAuth.currentUser
         val userid = user!!.uid
         var orderid = ""
         dbref = FirebaseDatabase.getInstance().getReference("orderdetails")
 
         orderid = dbref.push().key!!
+        val servicesUsed = orderhistory.toList()
 
-        val order = orderdetails(userid,orderhistory,time,serviceprovider)
+
+        val order = orderdetails(orderid,userid,servicesUsed,time,serviceprovider,totalAmount)
+
 
         dbref.child(orderid).setValue(order)
-            .addOnCompleteListener {
-                Toast.makeText(this, "order added Successfully", Toast.LENGTH_LONG).show()
-            }.addOnFailureListener { err ->
+            .addOnSuccessListener {
+                Toast.makeText(this, "Order added Successfully", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, CreditCard::class.java)
+                startActivity(intent)
+            }
+            .addOnFailureListener { err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 
 }
