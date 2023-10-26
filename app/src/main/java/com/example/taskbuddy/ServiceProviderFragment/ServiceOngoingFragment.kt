@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.example.taskbuddy.Modals.orderdetails
@@ -19,6 +20,7 @@ class ServiceOngoingFragment : Fragment() {
     private lateinit var servnamel: TextView
     private lateinit var useridl: TextView
     private lateinit var odertimel: TextView
+    private lateinit var totall: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -30,9 +32,19 @@ class ServiceOngoingFragment : Fragment() {
         servnamel = view.findViewById(R.id.serviceName)
         useridl = view.findViewById(R.id.JobDescription)
         odertimel = view.findViewById(R.id.orderTime)
+        totall = view.findViewById(R.id.total)
         firebaseAuth = FirebaseAuth.getInstance()
 
         getorder()
+        val finishedButton: Button = view.findViewById(R.id.finishedButton)
+
+        finishedButton.setOnClickListener {
+            // Navigate to ServiceHistoryFragment when Finished button is clicked
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, ServiceHistoryFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return view
     }
@@ -40,26 +52,33 @@ class ServiceOngoingFragment : Fragment() {
     private fun getorder() {
         val user = firebaseAuth.currentUser
         user?.let {
-            val userid = it.uid
-            dbRef = FirebaseDatabase.getInstance().getReference("orderdetails").child(userid)
-            dbRef.addValueEventListener(object : ValueEventListener {
+            val userId = it.uid
+            dbRef = FirebaseDatabase.getInstance().getReference("ongoingjob")
+
+            // Query the database to filter jobs based on service provider name
+            dbRef.orderByChild("serviceprovider").equalTo("vihitha").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        val orderresults = snapshot.getValue(orderdetails::class.java)
-                        if (orderresults != null) {
-                            val servnameList = orderresults.servicesUsed ?: emptyList()
-                            val userID = orderresults.userId
-                            val odertime = orderresults.orderTime
+                        for (jobSnapshot in snapshot.children) {
+                            val orderId = jobSnapshot.child("orderId").getValue(String::class.java) ?: ""
+                            val orderTime = jobSnapshot.child("orderTime").getValue(String::class.java) ?: ""
+                            val total = jobSnapshot.child("total").getValue(Double::class.java) ?: 0.0
+                            // Retrieve servicesUsed list
+                            val servicesUsedList = ArrayList<String>()
+                            for (serviceSnapshot in jobSnapshot.child("servicesUsed").children) {
+                                val service = serviceSnapshot.getValue(String::class.java) ?: ""
+                                servicesUsedList.add(service)
+                            }
 
-                            // Assuming servnameList is a list of strings
-                            servnamel.text = servnameList.joinToString(", ")
-                            useridl.text = userID
-                            odertimel.text = odertime
-                        } else {
-                            // Handle unexpected data structure
+                            // Now you can use these values to populate your TextViews
+                            servnamel.text = servicesUsedList.joinToString(", ")
+                            useridl.text = orderId
+                            odertimel.text = orderTime
+                            totall.text = total.toString()
+                            // Do something with 'total' if needed
                         }
                     } else {
-                        // Handle no data case
+                        // Handle no jobs found for the service provider
                     }
                 }
 
@@ -69,4 +88,5 @@ class ServiceOngoingFragment : Fragment() {
             })
         }
     }
+
 }
