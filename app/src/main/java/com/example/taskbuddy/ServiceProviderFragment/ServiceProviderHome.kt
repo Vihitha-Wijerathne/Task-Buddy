@@ -2,13 +2,9 @@ package com.example.taskbuddy.ServiceProviderFragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
-import com.example.taskbuddy.HistoryFragment
-import com.example.taskbuddy.HomeFragment
 import com.example.taskbuddy.R
-import com.example.taskbuddy.UserFragment
+
 
 class ServiceProviderHome : AppCompatActivity() {
     private lateinit var ser1 : ImageButton

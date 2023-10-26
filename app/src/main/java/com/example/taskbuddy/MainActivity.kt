@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val homeFrag = HomeFragment()
         val userFrag = UserFragment()
-        val historyFrag = HistoryFragment()
+//        val historyFrag = HistoryFragment()
 
         homefr.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        userfr.setOnClickListener{
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainerView, historyFrag)
-                commit()
-            }
-        }
+//        userfr.setOnClickListener{
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.fragmentContainerView, historyFrag)
+//                commit()
+//            }
+//        }
 
         histtryfr.setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
