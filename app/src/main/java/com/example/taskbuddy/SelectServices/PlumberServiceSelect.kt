@@ -58,6 +58,8 @@ class PlumberServiceSelect : AppCompatActivity() {
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
 
+        orderhistory = ArrayList()
+
         time = "$hour.$minute"
 
         orderhistory = ArrayList()
@@ -95,10 +97,10 @@ class PlumberServiceSelect : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        calculateTotalAmount(emergencyrepaires.isChecked,leakrepaire.isChecked,pipeinstallation.isChecked,draincleaning.isChecked,barthroomplumbing.isChecked,kitachenplumbing.isChecked)
 
-        totalpayment = calculateTotalAmount(emergencyrepaires.isChecked,leakrepaire.isChecked,pipeinstallation.isChecked,draincleaning.isChecked,barthroomplumbing.isChecked,kitachenplumbing.isChecked)
 
-        payableamount.text = totalpayment.toString()
+        payableamount.text = totalAmount.toString()
 
         proccedbtn.setOnClickListener{
             setorderdetails()
@@ -170,8 +172,11 @@ class PlumberServiceSelect : AppCompatActivity() {
         dbref = FirebaseDatabase.getInstance().getReference("orderdetails")
 
         orderid = dbref.push().key!!
+        val servicesUsed = orderhistory.toList()
 
-        val order = orderdetails(userid, orderhistory!!, time, serviceprovider)
+
+        val order = orderdetails(orderid,userid,servicesUsed,time,serviceprovider,totalAmount)
+
 
         dbref.child(orderid).setValue(order)
             .addOnSuccessListener {
