@@ -182,7 +182,7 @@ class ElectricalServiceSelect : AppCompatActivity() {
         val servicesUsed = orderhistory.toList()
 
 
-        val order = orderdetails(orderid,userid,servicesUsed,time,servicepId,totalAmount)
+        val order = orderdetails(orderid,userid,servicesUsed,time,servicepId,totalAmount,"yes")
 
 
         dbref.child(orderid).setValue(order)
