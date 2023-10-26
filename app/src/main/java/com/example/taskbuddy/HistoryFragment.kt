@@ -1,5 +1,6 @@
 package com.example.taskbuddy
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,11 +23,12 @@ import com.google.firebase.database.ValueEventListener
 
 
 class HistoryFragment : Fragment() {
-    private lateinit var plumberResult: ArrayList<orderdetails>
+    private lateinit var orderlist: ArrayList<orderdetails>
     private lateinit var dbRef: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var plumberRecyclerView: RecyclerView
     private lateinit var plumberAdapter: HistoryAdaptor
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,37 +36,37 @@ class HistoryFragment : Fragment() {
         // Inflate the layout for this fragment
         val view=inflater.inflate(R.layout.fragment_history, container, false)
 
-        plumberResult = ArrayList()
+        orderlist = ArrayList()
 
-        plumberRecyclerView = view.findViewById(R.id.plumberrecyclerview)
-        plumberRecyclerView.layoutManager = LinearLayoutManager(this)
-        plumberAdapter = HistoryAdaptor(requireContext(), plumberResult)
+        plumberRecyclerView = view.findViewById(R.id.orderhistoryrecyclerview)
+        plumberRecyclerView.layoutManager = LinearLayoutManager(context)
+        plumberAdapter = HistoryAdaptor(requireContext(),orderlist)
         plumberRecyclerView.adapter = plumberAdapter
 
         firebaseAuth = FirebaseAuth.getInstance()
+        val currentUser = firebaseAuth.currentUser
+        val userId = currentUser?.uid
 
         dbRef = FirebaseDatabase.getInstance().getReference("orderdetails")
 
-        dbRef.orderByChild("service").equalTo("Plumber")
+        dbRef.orderByChild("userId")
+            .equalTo(userId)
+            .orderByChild("status")
+            .equalTo("no")
             .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    plumberResult.clear()
-                    for (snapshot in dataSnapshot.children) {
-                        val item = snapshot.getValue(ServiceProviderModal::class.java)
-                        item?.let {
-                            if (ulocation == item.location) {
-                                plumberResult.add(item)
-                            }
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    orderlist.clear()
+                    for (postSnapshot in snapshot.children) {
+                        val order = postSnapshot.getValue(orderdetails::class.java)
+                        if (order != null) {
+                            orderlist.add(order)
                         }
                     }
-
-
                     plumberAdapter.notifyDataSetChanged()
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.e("PlumberSearch", "Database error: ${error.message}")
-                    Toast.makeText(this@PlumberSearch, "There is a problem retrieving data from the database", Toast.LENGTH_LONG).show()
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Handle errors here
                 }
             })
         return view
