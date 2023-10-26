@@ -39,54 +39,89 @@ class ServiceOngoingFragment : Fragment() {
         val finishedButton: Button = view.findViewById(R.id.finishedButton)
 
         finishedButton.setOnClickListener {
-            // Navigate to ServiceHistoryFragment when Finished button is clicked
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, ServiceHistoryFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
+            val user = firebaseAuth.currentUser
+            user?.let {
+                val userId = it.uid
+                dbRef = FirebaseDatabase.getInstance().getReference("orderdetails")
+
+                // Query the database to find the specific order where service provider ID matches the current user ID
+                dbRef.orderByChild("serviceprovider").equalTo(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            for (jobSnapshot in snapshot.children) {
+                                // Change the status to 'no'
+                                jobSnapshot.ref.child("status").setValue("no").addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        // Navigate to ServiceHistoryFragment
+                                        val transaction = parentFragmentManager.beginTransaction()
+                                        transaction.replace(R.id.fragment_container, ServiceHistoryFragment())
+                                        transaction.addToBackStack(null)
+                                        transaction.commit()
+                                    } else {
+                                        // Handle status update failure if needed
+                                    }
+                                }
+                            }
+                        } else {
+                            // Handle no jobs found for the service provider
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        // Handle database error
+                    }
+                })
+
+                val cancelButton: Button = view.findViewById(R.id.cancelButton)
+
+                cancelButton.setOnClickListener {
+                    // Redirect to ServiceHomeFragment when Cancel button is clicked
+                    val transaction = parentFragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragment_container, ServiceHomeFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
+            }
         }
+
 
         return view
     }
 
     private fun getorder() {
-        val user = firebaseAuth.currentUser
-        user?.let {
-            val userId = it.uid
-            dbRef = FirebaseDatabase.getInstance().getReference("ongoingjob")
+        dbRef = FirebaseDatabase.getInstance().getReference("orderdetails")
 
-            // Query the database to filter jobs based on service provider name
-            dbRef.orderByChild("serviceprovider").equalTo("vihitha").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        for (jobSnapshot in snapshot.children) {
-                            val orderId = jobSnapshot.child("orderId").getValue(String::class.java) ?: ""
-                            val orderTime = jobSnapshot.child("orderTime").getValue(String::class.java) ?: ""
-                            val total = jobSnapshot.child("total").getValue(Double::class.java) ?: 0.0
-                            // Retrieve servicesUsed list
-                            val servicesUsedList = ArrayList<String>()
-                            for (serviceSnapshot in jobSnapshot.child("servicesUsed").children) {
-                                val service = serviceSnapshot.getValue(String::class.java) ?: ""
-                                servicesUsedList.add(service)
-                            }
-
-                            // Now you can use these values to populate your TextViews
-                            servnamel.text = servicesUsedList.joinToString(", ")
-                            useridl.text = orderId
-                            odertimel.text = orderTime
-                            totall.text = total.toString()
-                            // Do something with 'total' if needed
+        dbRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (jobSnapshot in snapshot.children) {
+                        val orderId = jobSnapshot.child("orderId").getValue(String::class.java) ?: ""
+                        val orderTime = jobSnapshot.child("orderTime").getValue(String::class.java) ?: ""
+                        val total = jobSnapshot.child("total").getValue(Double::class.java) ?: 0.0
+                        // Retrieve servicesUsed list
+                        val servicesUsedList = ArrayList<String>()
+                        for (serviceSnapshot in jobSnapshot.child("servicesUsed").children) {
+                            val service = serviceSnapshot.getValue(String::class.java) ?: ""
+                            servicesUsedList.add(service)
                         }
-                    } else {
-                        // Handle no jobs found for the service provider
-                    }
-                }
 
-                override fun onCancelled(error: DatabaseError) {
-                    // Handle database error
+                        // Now you can use these values to populate your TextViews
+                        servnamel.text = servicesUsedList.joinToString(", ")
+                        useridl.text = orderId
+                        odertimel.text = orderTime
+                        totall.text = total.toString()
+                    }
+                } else {
+                    // Handle no jobs found in the orderdetails table
                 }
-            })
-        }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle database error
+            }
+        })
     }
+
+
 
 }
