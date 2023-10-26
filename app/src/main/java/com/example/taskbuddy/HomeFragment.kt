@@ -50,8 +50,6 @@ class HomeFragment : Fragment() {
         trainerbtn = view.findViewById(R.id.trainerbtn)
         allservices = view.findViewById(R.id.allservices )
 
-        feedbackbtn = view.findViewById(R.id.feedback)
-
 
         allservices.setOnClickListener {
             val intent = Intent(requireContext(), AllServices::class.java)
@@ -84,14 +82,6 @@ class HomeFragment : Fragment() {
         }
 
 
-      val payment = view.findViewById<Button>(R.id.payment)
-        payment.setOnClickListener {
-            val CardDetailsFragment = CreditCard()
-            CardDetailsFragment.show(
-                requireActivity().supportFragmentManager,
-                CardDetailsFragment.tag
-            )
-        }
 
       return view
     }

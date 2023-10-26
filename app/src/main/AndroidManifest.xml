@@ -83,6 +83,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".Payment.OrderPlaced"
+            android:exported="false" />
+        <activity
             android:name=".Payment.AddCardDetails"
             android:exported="false" />
         <activity

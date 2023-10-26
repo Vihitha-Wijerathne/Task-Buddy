@@ -125,10 +125,12 @@ class CleaningServiceSelect : AppCompatActivity() {
 
 
 
-        proccedbtn.setOnClickListener{
-            setorderdetails()
-            val intent = Intent(this, CreditCard::class.java)
-            startActivity(intent)
+        proccedbtn.setOnClickListener {
+            val cardDetailsFragment = CreditCard()
+            cardDetailsFragment.show(
+                supportFragmentManager,
+                cardDetailsFragment.tag
+            )
         }
     }
 
