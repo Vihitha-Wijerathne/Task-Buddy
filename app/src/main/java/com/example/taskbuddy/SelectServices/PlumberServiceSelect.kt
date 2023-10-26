@@ -147,23 +147,6 @@ class PlumberServiceSelect : AppCompatActivity() {
         return totalAmount
     }
 
-//    private fun setorderdetails(){
-//        val user = firebaseAuth.currentUser
-//        val userid = user!!.uid
-//        var orderid = ""
-//        dbref = FirebaseDatabase.getInstance().getReference("orderdetails")
-//
-//        orderid = dbref.push().key!!
-//
-//        val order = orderdetails(userid,orderhistory!!,time,serviceprovider)
-//
-//        dbref.child(orderid).setValue(order)
-//            .addOnCompleteListener {
-//                Toast.makeText(this, "order added Successfully", Toast.LENGTH_LONG).show()
-//            }.addOnFailureListener { err ->
-//                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
-//            }
-//    }
 
     private fun setorderdetails() {
         val user = firebaseAuth.currentUser
