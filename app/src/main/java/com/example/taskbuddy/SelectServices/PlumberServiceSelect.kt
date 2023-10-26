@@ -95,12 +95,40 @@ class PlumberServiceSelect : AppCompatActivity() {
         barthroomplumbing.text = "Bathroom Plumbing ($barthroomcost)"
         kitachenplumbing.text = "Kitchen Plumbing ($kitachencost)"
 
+        emergencyrepaires.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
+        leakrepaire.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
+        pipeinstallation.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
+        draincleaning.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
+        barthroomplumbing.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
+        kitachenplumbing.setOnCheckedChangeListener { buttonView, isChecked ->
+            calculateTotalAmount()
+            updatePayableAmount()
+        }
+
         firebaseAuth = FirebaseAuth.getInstance()
 
-        calculateTotalAmount(emergencyrepaires.isChecked,leakrepaire.isChecked,pipeinstallation.isChecked,draincleaning.isChecked,barthroomplumbing.isChecked,kitachenplumbing.isChecked)
 
 
-        payableamount.text = totalAmount.toString()
 
         proccedbtn.setOnClickListener{
             setorderdetails()
@@ -109,42 +137,43 @@ class PlumberServiceSelect : AppCompatActivity() {
         }
     }
 
-    private fun calculateTotalAmount(emergency: Boolean, leak: Boolean,pipe: Boolean,drain: Boolean,barthroom: Boolean,kitachen: Boolean): Double {
+    private fun calculateTotalAmount() {
+        totalAmount = 0.0
+        orderhistory.clear()
 
-
-        if (emergency) {
+        if (emergencyrepaires.isChecked) {
             totalAmount += emergencycost
-            orderhistory?.add("emergency repaire")
+            orderhistory.add("emergency repaire")
         }
 
-        if (leak) {
+        if (leakrepaire.isChecked) {
             totalAmount += leakcost
-            orderhistory?.add("leak repaire")
-
+            orderhistory.add("leak repaire")
         }
 
-        if (pipe) {
+        if (pipeinstallation.isChecked) {
             totalAmount += pipecost
-            orderhistory?.add("pipe fixing")
-
+            orderhistory.add("pipe fixing")
         }
-        if (drain) {
+
+        if (draincleaning.isChecked) {
             totalAmount += draincost
-            orderhistory?.add("drain repaire")
-
+            orderhistory.add("drain repaire")
         }
-        if (barthroom) {
+
+        if (barthroomplumbing.isChecked) {
             totalAmount += barthroomcost
-            orderhistory?.add("barthroom plumbing")
-
+            orderhistory.add("barthroom plumbing")
         }
-        if (kitachen) {
+
+        if (kitachenplumbing.isChecked) {
             totalAmount += kitachencost
-            orderhistory?.add("kitchen plumbing")
-
+            orderhistory.add("kitchen plumbing")
         }
+    }
 
-        return totalAmount
+    private fun updatePayableAmount() {
+        payableamount.text = totalAmount.toString()
     }
 
 
@@ -158,7 +187,7 @@ class PlumberServiceSelect : AppCompatActivity() {
         val servicesUsed = orderhistory.toList()
 
 
-        val order = orderdetails(orderid,userid,servicesUsed,time,serviceprovider,totalAmount)
+        val order = orderdetails(orderid,userid,servicesUsed,time,servicepId,totalAmount)
 
 
         dbref.child(orderid).setValue(order)
