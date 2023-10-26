@@ -55,7 +55,7 @@
 
         <TextView
             android:id="@+id/serviceprovidername"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="100dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/serviceproviderlocation"
             android:layout_width="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="80dp"
             android:layout_height="wrap_content"
             />
     </LinearLayout>
@@ -101,7 +101,7 @@
         <TextView
             android:id="@+id/serviceprovidernumber"
             android:layout_width="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="85dp"
             android:layout_height="wrap_content"
             />
     </LinearLayout>
@@ -123,7 +123,7 @@
         <TextView
             android:id="@+id/serviceproviderrating"
             android:layout_width="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="95dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -144,7 +144,7 @@
         <TextView
             android:id="@+id/payableamount"
             android:layout_width="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:layout_height="wrap_content"
             />
     </LinearLayout>

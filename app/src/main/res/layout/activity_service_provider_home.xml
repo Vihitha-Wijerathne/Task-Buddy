@@ -62,10 +62,10 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/fragmentContainerView2"
         android:name="com.example.taskbuddy.ServiceProviderFragment.ServiceHomeFragment"
         android:layout_width="408dp"
         android:layout_height="700dp"

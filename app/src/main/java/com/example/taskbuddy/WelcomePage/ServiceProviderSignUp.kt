@@ -1,5 +1,6 @@
 package com.example.taskbuddy.WelcomePage
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,9 +31,10 @@ class ServiceProviderSignUp : AppCompatActivity() {
     private lateinit var remail: EditText
     private lateinit var rpasswd: EditText
     private lateinit var repasswd: EditText
-    private lateinit var rlocation: EditText
+    private lateinit var rlocation: Spinner
     private lateinit var servicetype: Spinner
     private var count: Int = 0
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service_provider_sign_up)
@@ -55,7 +57,7 @@ class ServiceProviderSignUp : AppCompatActivity() {
         rlocation?.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                Toast.makeText(this@ServiceProviderSignUp,"Item is ${types[p2]}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@ServiceProviderSignUp,"Item is ${locations[p2]}", Toast.LENGTH_LONG).show()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
