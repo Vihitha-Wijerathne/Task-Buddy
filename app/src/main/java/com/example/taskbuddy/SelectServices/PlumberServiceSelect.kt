@@ -129,6 +129,7 @@ class PlumberServiceSelect : AppCompatActivity() {
 
 
         proccedbtn.setOnClickListener {
+            setorderdetails()
             val cardDetailsFragment = CreditCard()
             cardDetailsFragment.show(
                 supportFragmentManager,

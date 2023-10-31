@@ -56,11 +56,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        feedbackbtn.setOnClickListener {
-            val intent = Intent(requireContext(), ServiceProviderHome::class.java)
-            startActivity(intent)
-        }
-
         plumberbtn.setOnClickListener {
             val intent = Intent(requireContext(), PlumberSearch::class.java)
             startActivity(intent)

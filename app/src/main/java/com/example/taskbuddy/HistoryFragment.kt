@@ -49,9 +49,7 @@ class HistoryFragment : Fragment() {
 
         dbRef = FirebaseDatabase.getInstance().getReference("orderdetails")
 
-        dbRef.orderByChild("status")
-            .equalTo("no")
-            .addValueEventListener(object : ValueEventListener {
+        dbRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     orderlist.clear()
                     for (postSnapshot in snapshot.children) {
