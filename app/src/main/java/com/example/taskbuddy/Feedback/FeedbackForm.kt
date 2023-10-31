@@ -1,8 +1,11 @@
 package com.example.taskbuddy.Feedback
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.example.taskbuddy.HomeFragment
+import com.example.taskbuddy.MainActivity
 import com.example.taskbuddy.Modals.AddFeedbackModal
 import com.example.taskbuddy.Modals.ServiceProviderModal
 import com.example.taskbuddy.R
@@ -61,54 +64,65 @@ class FeedbackForm : AppCompatActivity() {
         var feedbackId = ""
 
         submitButton.setOnClickListener {
-            database = FirebaseDatabase.getInstance().getReference("feedback")
-
-            feedbackId = database.push().key!!
-
-            val feedback =AddFeedbackModal(userId,serviceProviderId,orderId, serviceRating,timeManagementRating, userFriendlinessRating, overallSatisfactionRating, comments)
-
-            database.child(feedbackId).setValue(feedback)
-                .addOnCompleteListener {
-                    Toast.makeText(this, "feedback added Successfully", Toast.LENGTH_LONG).show()
-                }.addOnFailureListener { err ->
-                    Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
-                }
-
-            getServiceData()
-
-            jobRating = ((serviceRating + timeManagementRating + userFriendlinessRating + overallSatisfactionRating) / 4)
-
-            ratingAverage = ((ratingAverage * averageCount) + jobRating) / (averageCount + 1)
-
-            averageCount += 1
-
-            updateServiceProvider()
-
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
-    }
-    private fun getServiceData(){
-        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    val getServiceProvider = snapshot.getValue(ServiceProviderModal::class.java)
-                    ratingAverage = getServiceProvider?.rating!!
-                    averageCount = getServiceProvider?.count!!
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@FeedbackForm,"There is a problem of retrieving data from database", Toast.LENGTH_LONG).show()
-            }
-        })
-
-    }
-    private fun updateServiceProvider(){
-        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
-
-        val updateServiceProvider = ServiceProviderModal(serviceProviderId,nic,name,email,number,service,location,ratingAverage,status,averageCount)
-        database.setValue(updateServiceProvider)
-    }
+//        submitButton.setOnClickListener {
+//            database = FirebaseDatabase.getInstance().getReference("feedback")
+//
+//            feedbackId = database.push().key!!
+//
+//            val feedback =AddFeedbackModal(userId,serviceProviderId,orderId, serviceRating,timeManagementRating, userFriendlinessRating, overallSatisfactionRating, comments)
+//
+//            database.child(feedbackId).setValue(feedback)
+//                .addOnCompleteListener {
+//                    Toast.makeText(this, "feedback added Successfully", Toast.LENGTH_LONG).show()
+//                }.addOnFailureListener { err ->
+//                    Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+//                }
+//
+//            getServiceData()
+//
+//            jobRating = ((serviceRating + timeManagementRating + userFriendlinessRating + overallSatisfactionRating) / 4)
+//
+//            ratingAverage = ((ratingAverage * averageCount) + jobRating) / (averageCount + 1)
+//
+//            averageCount += 1
+//
+//            updateServiceProvider()
+//
+//        }
+//
+  }
+//    private fun getServiceData(){
+//        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
+//        database.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                if(snapshot.exists()){
+//                    val getServiceProvider = snapshot.getValue(ServiceProviderModal::class.java)
+//                    ratingAverage = getServiceProvider?.rating!!
+//                    averageCount = getServiceProvider?.count!!
+//                    nic= getServiceProvider?.nic!!
+//                    name = getServiceProvider?.name!!
+//                   email = getServiceProvider?.email!!
+//                    number = getServiceProvider?.number!!
+//                   service = getServiceProvider?.service!!
+//                   location = getServiceProvider?.location!!
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(this@FeedbackForm,"There is a problem of retrieving data from database", Toast.LENGTH_LONG).show()
+//            }
+//        })
+//
+//    }
+//    private fun updateServiceProvider(){
+//        database = FirebaseDatabase.getInstance().getReference("serviceprovider").child(serviceProviderId)
+//
+//        val updateServiceProvider = ServiceProviderModal(serviceProviderId,nic,name,email,number,service,location,ratingAverage,status,averageCount)
+//        database.setValue(updateServiceProvider)
+//    }
 
 }
