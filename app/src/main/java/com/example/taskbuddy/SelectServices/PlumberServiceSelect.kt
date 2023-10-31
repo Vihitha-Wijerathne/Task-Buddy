@@ -19,7 +19,7 @@ import java.util.Calendar
 class PlumberServiceSelect : AppCompatActivity() {
     private var serviceprovider: String? = null
     private  var slocation: String? = null
-    private  var srating: Int = 0
+    private  var srating: Float = 0F
     private var totalpayment: Double = 0.0
     private  var snumber: String? = null
     private lateinit var emergencyrepaires: CheckBox
@@ -80,7 +80,7 @@ class PlumberServiceSelect : AppCompatActivity() {
         serviceprovider = intent.getStringExtra("name")
         slocation = intent.getStringExtra("location")
         snumber = intent.getStringExtra("number")
-        srating = intent.getIntExtra("rating",0)
+        srating = intent.getFloatExtra("rating",0.0F)
         servicepId = intent.getStringExtra("id")
 
         sname.text = serviceprovider
